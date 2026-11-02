@@ -4,6 +4,8 @@ This directory contains repository-wide guides and architecture documentation.
 
 ## Current guides
 
+- [Contribution policy](../CONTRIBUTING.md)
+- [Contribution tutorial](Tutorial-Adding-Information-to-the-Repo.md)
 - [Repository improvement plan](repository-improvement-plan.md)
 - [Blocker register](blocker-register.md)
 - [Repository terminology](../GLOSSARY.md)

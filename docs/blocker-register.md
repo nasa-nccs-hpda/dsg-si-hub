@@ -6,6 +6,10 @@
 
 This dashboard owns blocker lifecycle, ownership, current resolution steps, and evidence. The [repository improvement plan](repository-improvement-plan.md) owns workstreams and sequencing. Follow the [glossary](../GLOSSARY.md) and the [agent update rule](../AGENTS.md#blocker-tracking).
 
+## Relationship to the repository refactor
+
+Per the user's scope clarification on 2026-11-02, leave all project blockers open during the initial repository refactor. They prevent the claims or project decisions named in their records; they do not prevent structural cleanup that preserves scientific content and evidence. Resolution remains with the authorized project owners, including ownership decisions still unassigned in this register. Defer any cleanup edit requiring scientific adjudication or evidence deletion, and continue independent navigation and documentation work within the [initial-pass scope](repository-improvement-plan.md#initial-pass-scope).
+
 ## Lifecycle and maintenance
 
 - `open`: the blocking condition applies.

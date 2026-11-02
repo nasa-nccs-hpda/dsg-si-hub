@@ -2,9 +2,15 @@
 
 - Owner: Repository maintainers
 - Last reviewed: 2026-11-02
-- Source: [Approved refactor, issue #5](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/5) and its ordered implementation issues.
+- Source: [Approved refactor, issue #5](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/5), its ordered implementation issues, and the user's scope clarification in the repository-refactor session on 2026-11-02.
 
 Reduce documentation and structural redundancy while preserving project-specific scientific evidence. This plan owns workstreams, dependencies, and intended document responsibilities. The [blocker register](blocker-register.md) owns blocker details and lifecycle; GitHub issues own execution discussion and status. Use the [glossary](../GLOSSARY.md) for terminology.
+
+## Initial-pass scope
+
+This pass concerns repository structure, navigation, and duplicated guidance. The repository provides curated references, lightweight implementations, and documentation contributed by project teams; it does not require a complete archive of every experiment or a runnable copy of each project's pipeline. Contributors can develop further experiments in their project repositories.
+
+Leave project blockers open for this refactor. They constrain scientific claims and decisions owned by the project teams; resolving them is not a prerequisite for repository cleanup. Preserve existing scientific results, conclusions, limitations, attribution, and evidence. Consolidate entry points and repeated guidance through links to existing project material. If a particular edit would require interpreting competing results or deciding which evidence to discard, defer that edit to the authorized project owner and continue the remaining structural work.
 
 ## Canonical documentation responsibilities
 
@@ -51,7 +57,7 @@ New directories use lowercase, hyphen-separated names. The existing `projects/PA
 
 ## Follow-on scientific and evidence work
 
-After the refactor, use the register's stable IDs to select one blocker at a time for a future grilling session and create an execution issue when a concrete resolution path is agreed. For PACE, consult [PACE-001 through PACE-006](blocker-register.md#pace-001) before extending reproducibility, generalization, coverage, method-comparison, historical-label, or regression claims. For IMVI, begin with [IMVI-001](blocker-register.md#imvi-001) before decisions that require scientific ownership; consult the remaining IMVI records before consolidating claims or deleting evidence artifacts.
+Project teams may take up scientific and evidence work separately after the refactor. When an authorized project owner chooses to pursue a blocker, use its stable ID for a focused grilling session and create an execution issue when a concrete resolution path is agreed. This follow-on work is outside the initial pass. For PACE, consult [PACE-001 through PACE-006](blocker-register.md#pace-001) before extending reproducibility, generalization, coverage, method-comparison, historical-label, or regression claims. For IMVI, begin with [IMVI-001](blocker-register.md#imvi-001) before decisions that require scientific ownership; consult the remaining IMVI records before consolidating claims or deleting evidence artifacts.
 
 The deferred cleanup inventory in [#12](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/12) supplies discovery evidence for later owner decisions. It does not authorize artifact deletion or adjudicate competing summaries. Record resulting blocker changes in the register rather than copying their status into this plan.
 
