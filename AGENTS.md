@@ -24,3 +24,21 @@ When placement is unclear, prefer the relevant project directory. Do not general
 - Keep skills small, task-oriented, and self-contained.
 - Validate scripts and links in proportion to their risk.
 - Remove `.gitkeep` when a directory gains real content.
+
+## Agent skills
+
+### Issue tracker
+
+Issues and specs live in GitHub Issues for `nasa-nccs-hpda/ilab-agentic-ai`. See `docs/agents/issue-tracker.md`.
+
+### Domain docs
+
+Repository-wide domain docs use a single-context layout. See `docs/agents/domain.md`.
+
+### Blocker tracking
+
+- Read `docs/blocker-register.md` for blockers relevant to the work.
+- When blocker state, ownership, current resolution step, required evidence, or issue links materially change, update both its summary row and detailed record in the same change. Record the last-updated date and link supporting evidence.
+- Keep stable blocker IDs. Use only `open`, `resolution-proposed`, and `resolved`; mark a blocker resolved only after its authorized owner accepts the evidence or withdraws the blocked claim, and record that acceptance.
+- Do not treat issue completion or passing tests alone as owner acceptance. Leave unassigned scientific decisions with the project until an authorized owner is identified.
+- Keep workstreams and sequencing in `docs/repository-improvement-plan.md`; keep blocker details and lifecycle in the register and execution discussion in the configured issue tracker.

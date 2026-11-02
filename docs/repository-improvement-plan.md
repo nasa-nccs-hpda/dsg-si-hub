@@ -1,0 +1,62 @@
+# Repository improvement plan
+
+- Owner: Repository maintainers
+- Last reviewed: 2026-11-02
+- Source: [Approved refactor, issue #5](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/5) and its ordered implementation issues.
+
+Reduce documentation and structural redundancy while preserving project-specific scientific evidence. This plan owns workstreams, dependencies, and intended document responsibilities. The [blocker register](blocker-register.md) owns blocker details and lifecycle; GitHub issues own execution discussion and status. Use the [glossary](../GLOSSARY.md) for terminology.
+
+## Canonical documentation responsibilities
+
+These responsibilities guide the ordered refactor; the later issues implement the corresponding document changes.
+
+| Information | Canonical owner |
+| --- | --- |
+| Repository orientation and entry points | [Root README](../README.md) |
+| Human contribution policy, placement, lifecycle, standards, and review checks | [CONTRIBUTING.md](../CONTRIBUTING.md) |
+| Enforceable agent behavior | [Root AGENTS.md](../AGENTS.md), supplemented by project agent instructions |
+| Contribution examples and teaching | [Contribution tutorial](Tutorial-Adding-Information-to-the-Repo.md), linking to policy |
+| Shared terminology and accepted architectural decisions | [GLOSSARY.md](../GLOSSARY.md) and `docs/adr/` when decisions warrant records |
+| Improvement workstreams and sequencing | This plan |
+| Blocker ownership, lifecycle, resolution steps, and evidence | [Blocker register](blocker-register.md) |
+| PACE name, status, and maintainers | [PACE project metadata](../projects/PACE-VCF/project.yaml) |
+| PACE navigation, ownership entry points, and access constraints | [PACE landing page](../projects/PACE-VCF/README.md), linking to metadata |
+| PACE scientific roadmap, results, and future work | [PACE project overview](../projects/PACE-VCF/knowledge/overview/project-overview.md) |
+| PACE workflow retrospective | [PACE agentic workflow](../projects/PACE-VCF/knowledge/overview/agentic-workflow.md) |
+| IMVI project entry points and reviewed scope | [IMVI landing page](../projects/imvi/README.md), subject to project-owner review |
+| IMVI implementation fidelity, benchmark evidence, summaries, and GPU operations | Technical navigation established by issue #11; scientific authority remains subject to the register's owner and evidence requirements |
+
+## Ordered refactor
+
+Execute these eight issues strictly in order. Each issue after #6 depends on the preceding issue; consult GitHub for completion status.
+
+| Order | Execution issue | Result needed by the next step |
+| --- | --- | --- |
+| 1 | [#6: Establish repository governance and blocker tracking](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/6) | Shared terminology, document responsibilities, plan, register, and agent update rules |
+| 2 | [#7: Deduplicate repository-level contribution guidance](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/7) | Distinct orientation, policy, agent, and tutorial responsibilities |
+| 3 | [#8: Replace placeholder taxonomy with on-demand structure](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/8) | Active-tree directories containing implemented content and contribution paths that are not ignored |
+| 4 | [#9: Move the ROCKE-3D Figure 6 reproduction into IMVI](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/9) | Project-owned example with corrected references and regeneration guidance |
+| 5 | [#10: Clarify PACE documentation ownership](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/10) | Metadata, navigation, science, retrospective, and agent responsibilities separated |
+| 6 | [#11: Establish IMVI technical navigation without adjudicating science](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/11) | Technical entry points that expose unresolved scientific authority |
+| 7 | [#12: Inventory deferred IMVI evidence and document cleanup](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/12) | Purpose, repository impact, duplicate candidates, and owner/evidence requirements recorded without deletions |
+| 8 | [#13: Verify and hand off the redundancy refactor](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/13) | Navigation, links, exclusions, scientific preservation, and tracking handoff verified |
+
+## On-demand structure
+
+Keep project-specific information under `projects/<project>/`; promote information to `knowledge/` only when reuse is demonstrated. Repeatable procedures belong in `skills/`, reusable roles in `agents/`, external-platform guidance in `integrations/`, and behavioral verification in `evals/`.
+
+Retain [templates](../templates/) as starting points. Create dataset, model, sensor, algorithm, troubleshooting, prompt, example, evaluation, skill, or agent subareas when real content needs them. Keep repository documentation flat except where a subarea contains real content, such as agent guidance or accepted decision records. Future categories belong in this plan and templates rather than empty tracked directories. Issue #8 implements removal of structural placeholders and correction of IMVI ignore rules.
+
+New directories use lowercase, hyphen-separated names. The existing `projects/PACE-VCF/` directory is a legacy path, retained to avoid disruptive link and history churn. Personal repository-local skills stay untracked through checkout-only exclusions in `.git/info/exclude`, rather than a shared ignore rule.
+
+## Follow-on scientific and evidence work
+
+After the refactor, use the register's stable IDs to select one blocker at a time for a future grilling session and create an execution issue when a concrete resolution path is agreed. For PACE, consult [PACE-001 through PACE-006](blocker-register.md#pace-001) before extending reproducibility, generalization, coverage, method-comparison, historical-label, or regression claims. For IMVI, begin with [IMVI-001](blocker-register.md#imvi-001) before decisions that require scientific ownership; consult the remaining IMVI records before consolidating claims or deleting evidence artifacts.
+
+The deferred cleanup inventory in [#12](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/12) supplies discovery evidence for later owner decisions. It does not authorize artifact deletion or adjudicate competing summaries. Record resulting blocker changes in the register rather than copying their status into this plan.
+
+## Boundaries and verification
+
+Preserve NMC AI Hub, Mantle, Codex, and Claude setup documentation. Preserve PACE metrics-v4 conclusions and unresolved IMVI scientific, validation, and performance claims. No scientific artifact deletion or disputed-claim reconciliation is authorized by this refactor.
+
+Validate changed internal links, repository navigation, absence of tracked structural placeholders after #8, checkout-only personal-skill exclusions, and the final blocker handoff in #13. A completed execution issue does not resolve a scientific blocker without the authorized owner's recorded acceptance.
