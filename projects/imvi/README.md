@@ -20,4 +20,4 @@ Create these locations only when adding content that needs them; they are contri
 - `examples/`: safe, reproducible examples
 - `evals/`: project acceptance cases and expected outcomes
 
-Start with the [contribution examples](examples/README.md) and copy a template from the repository's [templates](../../templates/) directory.
+Start with the [examples index and contribution guidance](examples/README.md) and copy a template from the repository's [templates](../../templates/) directory.

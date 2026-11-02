@@ -1,6 +1,12 @@
-# IMVI contribution examples
+# IMVI examples
 
-These examples describe where information belongs; they do not assert facts about IMVI.
+## Implemented examples
+
+- [ROCKE-3D Figure 6 reproduction](rocke3d-figure6/README.md): script, notebook, and retained plot using the Tsigaridis et al. (2025) publication supplement. The example documents its source, execution paths, and regeneration limits.
+
+## Contribution guidance
+
+The contribution examples below describe where information belongs; they do not assert facts about IMVI.
 
 ## Add a dataset note
 
