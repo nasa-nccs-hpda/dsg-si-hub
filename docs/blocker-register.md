@@ -18,7 +18,7 @@ Update the summary and detailed record together when state, owner, step, require
 
 | ID | Tag | Status | Owner | Current resolution step | Last updated |
 |---|---|---|---|---|---|
-| [REPO-001](#repo-001) | governance | resolution-proposed | Repository maintainers | Review the governance commit and record acceptance of the approved controls | 2026-11-02 |
+| [REPO-001](#repo-001) | governance | resolved | Repository maintainers | Acceptance recorded; no remaining resolution step | 2026-11-02 |
 | [PACE-001](#pace-001) | claim | open | Melanie Frost | Obtain authorized reproducibility evidence from the NCCS environment | 2026-11-02 |
 | [PACE-002](#pace-002) | claim | open | Melanie Frost | Evaluate generalization with a whole-tile split | 2026-11-02 |
 | [PACE-003](#pace-003) | claim | open | Melanie Frost | Decide and validate handling of two unsupported polar tiles | 2026-11-02 |
@@ -33,16 +33,16 @@ Update the summary and detailed record together when state, owner, step, require
 
 ## REPO-001
 
-### Blocker [governance] — Repository governance awaits maintainer acceptance
+### Blocker [governance] — Repository governance controls accepted
 
-- Status: resolution-proposed
+- Status: resolved
 - Owner: Repository maintainers
-- Current step: Review the governance commit for [issue #6](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/6) and record maintainer acceptance of the approved controls.
+- Current step: Acceptance recorded; no remaining resolution step.
 - Last updated: 2026-11-02
 - Required evidence: The glossary, agent-domain guidance, issue-tracker guidance, improvement plan, blocker dashboard, and blocker-update agent rule are present in the active tree.
-- Accepted evidence: None recorded; maintainer verification is pending.
+- Accepted evidence: Governance controls committed in `9029346`, accepted by the user on 2026-11-02: “REPO-001 direction approved.”
 - Issue: [#6](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/6).
-- Sources: [Glossary](../GLOSSARY.md), [domain guidance](agents/domain.md), [issue-tracker guidance](agents/issue-tracker.md), [plan](repository-improvement-plan.md), this register, and [agent update rule](../AGENTS.md#blocker-tracking). These controls are proposed evidence until committed and accepted by a repository maintainer.
+- Sources: [Glossary](../GLOSSARY.md), [domain guidance](agents/domain.md), [issue-tracker guidance](agents/issue-tracker.md), [plan](repository-improvement-plan.md), this register, and [agent update rule](../AGENTS.md#blocker-tracking), committed in `9029346`; the user's approval in this conversation records acceptance.
 
 ## PACE-001
 
