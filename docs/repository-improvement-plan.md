@@ -30,7 +30,7 @@ These responsibilities guide the ordered refactor; the later issues implement th
 | PACE scientific roadmap, results, and future work | [PACE project overview](../projects/PACE-VCF/knowledge/overview/project-overview.md) |
 | PACE workflow retrospective | [PACE agentic workflow](../projects/PACE-VCF/knowledge/overview/agentic-workflow.md) |
 | IMVI project entry points and reviewed scope | [IMVI landing page](../projects/imvi/README.md), subject to project-owner review |
-| IMVI implementation fidelity, benchmark evidence, summaries, and GPU operations | Technical navigation established by issue #11; scientific authority remains subject to the register's owner and evidence requirements |
+| IMVI implementation fidelity, benchmark evidence, summaries, and GPU operations | [ROCKE-3D/JAX technical navigation](../projects/imvi/rocke3d_jax/README.md) routes readers by document responsibility; scientific authority remains subject to the register's owner and evidence requirements |
 
 ## Ordered refactor
 

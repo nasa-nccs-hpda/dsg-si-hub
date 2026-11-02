@@ -4,6 +4,17 @@ This directory is the contribution workspace for IMVI. It provides a place to ca
 
 The repository does not yet define IMVI's authoritative scope, model inventory, or technical architecture. Project maintainers should replace this introductory text with reviewed project information.
 
+## Existing technical material
+
+- [ROCKE-3D/JAX technical navigation](rocke3d_jax/README.md): entry points for
+  implementation fidelity, benchmark evidence, retained summaries, and GPU
+  operating guidance. Conflicting scientific claims remain subject to the
+  [IMVI blocker register](../../docs/blocker-register.md#imvi-001) and an
+  authorized scientific owner; this material does not establish reviewed
+  project scope.
+- [Examples](examples/README.md): the Figure 6 reproduction and contribution
+  examples.
+
 ## Where to contribute
 
 Create these locations only when adding content that needs them; they are contribution paths, not an inventory of existing project material.
