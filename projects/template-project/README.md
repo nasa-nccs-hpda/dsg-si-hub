@@ -1,10 +1,22 @@
 # Project name
 
+This directory is a project template, not an active project. Copy `README.md`, `AGENTS.md`, and `project.yaml` into a new project directory, then replace the illustrative fields and remove this template notice.
+
 Summarize the project, its users, and the role of agent resources in this directory.
 
 ## Owners
 
 - Add the responsible team or maintainers.
+
+## Optional examples
+
+Copy and adapt only the examples your project needs:
+
+- [Skill](skills/example-skill/SKILL.md)
+- [Agent role](agents/example-agent/README.md)
+- [Evaluation](evals/example-evaluation/README.md)
+
+Rename copied examples, replace their content and metadata, and remove unused example directories before publishing a project. Copy an individual example when adding a capability to an existing project.
 
 ## Contributing
 

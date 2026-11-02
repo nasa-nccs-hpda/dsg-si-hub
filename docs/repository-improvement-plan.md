@@ -2,7 +2,7 @@
 
 - Owner: Repository maintainers
 - Last reviewed: 2026-11-02
-- Source: [Approved refactor, issue #5](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/5), its ordered implementation issues, the user's scope clarification, and the later [project-author removal authorization](../projects/imvi/rocke3d-jax-removal.md), relayed on 2026-11-02.
+- Source: [Approved refactor, issue #5](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/5), its ordered implementation issues, the user's scope clarification, the later [project-author removal authorization](../projects/imvi/rocke3d-jax-removal.md), and the user's follow-up request to remove README-only shared areas and colocate templates, all supplied or relayed on 2026-11-02.
 
 Reduce documentation and structural redundancy while preserving project-specific scientific evidence. This plan owns workstreams, dependencies, and intended document responsibilities. The [blocker register](blocker-register.md) owns blocker details and lifecycle; GitHub issues own execution discussion and status. Use the [glossary](../GLOSSARY.md) for terminology.
 
@@ -51,9 +51,11 @@ Execute these eight issues strictly in order. Each issue after #6 depends on the
 
 ## On-demand structure
 
-Keep project-specific information under `projects/<project>/`; promote information to `knowledge/` only when reuse is demonstrated. Repeatable procedures belong in `skills/`, reusable roles in `agents/`, external-platform guidance in `integrations/`, and behavioral verification in `evals/`.
+Keep project-specific information under `projects/<project>/`; promote information to `knowledge/` only when reuse is demonstrated. Keep procedures, roles, and evaluations with their project until shared use justifies a new area. Existing external-platform setup guidance remains under `docs/`; create a distinct integration area only when implemented content needs it.
 
-Retain [templates](../templates/) as starting points. Create dataset, model, sensor, algorithm, troubleshooting, prompt, example, evaluation, skill, or agent subareas when real content needs them. Keep repository documentation flat except where a subarea contains real content, such as agent guidance or accepted decision records. Future categories belong in this plan and templates rather than empty tracked directories.
+The user's follow-up cleanup removes the README-only top-level `evals/`, `integrations/`, `skills/`, `agents/`, and `tools/` areas. The [project template](../projects/template-project/README.md) lives under `projects/`, with optional skill, agent, and evaluation examples inside it; knowledge, dataset, and model templates live under `knowledge/templates/`. These are contribution starting points, not active project implementations or reviewed scientific entries. The former top-level template collection is replaced by this colocated layout.
+
+Use the [contribution template index](../CONTRIBUTING.md#templates) to find starting points. Create dataset, model, sensor, algorithm, troubleshooting, prompt, example, evaluation, skill, or agent subareas when real content needs them. Keep repository documentation flat except where a subarea contains real content, such as agent guidance or accepted decision records. Future categories belong in this plan and the relevant templates rather than README-only category directories.
 
 The following are possible categories, not an inventory of implemented directories. Create only the subareas needed by a contribution; do not recreate the entire taxonomy.
 
@@ -66,7 +68,7 @@ The following are possible categories, not an inventory of implemented directori
 | Evaluations | `skills/` for focused skill scenarios, `agents/` for role behavior, and `projects/` for project acceptance cases |
 | Tools | `scaffold/` for creating entries, `validate/` for repository checks, and `catalog/` for indexes and inventories |
 
-Project prompts, examples, evaluations, skills, and agents follow the [project template](../templates/project/README.md). Documentation subareas such as `docs/adr/` require actual records; general guides remain directly under `docs/`.
+Project prompts, examples, evaluations, skills, and agents follow the [project template](../projects/template-project/README.md). Documentation subareas such as `docs/adr/` require actual records; general guides remain directly under `docs/`.
 
 New directories use lowercase, hyphen-separated names. The existing `projects/PACE-VCF/` directory is a legacy path, retained to avoid disruptive link and history churn. Personal repository-local skills stay untracked through checkout-only exclusions in `.git/info/exclude`, rather than a shared ignore rule.
 

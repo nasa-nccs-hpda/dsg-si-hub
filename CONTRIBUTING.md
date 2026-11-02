@@ -4,6 +4,8 @@ Contributions can be as small as a corrected link or as substantial as a tested 
 
 ## Choose the contribution type
 
+Create contribution paths only when adding content that needs them; this table includes possible shared areas that do not exist yet.
+
 | You want to add | Start here |
 | --- | --- |
 | Context or information useful to one project | `projects/<project>/`, usually its `knowledge/` area |
@@ -11,21 +13,38 @@ Contributions can be as small as a corrected link or as substantial as a tested 
 | A dataset, sensor, mission, model, or algorithm used by several projects | `knowledge/` |
 | A repeatable procedure an agent should follow | `skills/` or `projects/<project>/skills/` |
 | A reusable agent role or configuration | `agents/` or `projects/<project>/agents/` |
-| Instructions for an external platform or service | `integrations/` |
+| Instructions for an external platform or service | The existing guide under `docs/`, or project-local guidance when specific to one project |
 | A prompt used only by one project | `projects/<project>/prompts/` |
 | A test case or expected outcome | `evals/` or `projects/<project>/evals/` |
+| A utility that maintains this repository | `tools/`, when an implementation needs it |
 
 If you are uncertain, put the contribution under the project that needs it. Promote material into shared areas only when another project needs it; do not generalize speculative or project-specific practices into shared guidance. Lightweight documentation and references to a project's working repository are valid contributions; a complete experiment archive or runnable pipeline is not required.
+
+Runtime helpers used by one skill belong inside that skill's `scripts/` directory.
 
 ## Basic workflow
 
 1. Search the repository for an existing entry before creating one.
-2. Copy the closest [template](templates/). A new project starts with `README.md`, `AGENTS.md`, and `project.yaml` from [the project template](templates/project/).
+2. Copy the closest [template](#templates). A new project starts with `README.md`, `AGENTS.md`, and `project.yaml` from [the project template](projects/template-project/README.md). Copy its optional skill, agent, and evaluation examples only when needed.
 3. Use lowercase, hyphen-separated names for new directories. Preserve documented [legacy paths](docs/repository-improvement-plan.md#on-demand-structure).
 4. Fill in ownership, status, sources, and review information. Create subdirectories only when the contribution needs them, and remove `.gitkeep` when adding real content to a directory.
 5. Add links from the nearest `README.md` when appropriate; list new projects in the [project index](projects/README.md).
 6. Check that examples contain no secrets or restricted data.
 7. Open a pull request explaining who uses the contribution and how it was verified.
+
+## Templates
+
+Templates live beside the content they support and contain illustrative fields, not reviewed project findings. Replace example names, owners, sources, and dates before publishing a contribution.
+
+| Contribution | Starting point |
+| --- | --- |
+| Project | [Project template](projects/template-project/README.md) |
+| Knowledge entry | [Knowledge template](knowledge/templates/knowledge-entry.md) |
+| Dataset entry | [Dataset template](knowledge/templates/dataset-entry.md) |
+| Model entry | [Model template](knowledge/templates/model-entry.md) |
+| Skill | [Example skill](projects/template-project/skills/example-skill/SKILL.md) |
+| Agent role | [Example agent](projects/template-project/agents/example-agent/README.md) |
+| Evaluation | [Example evaluation](projects/template-project/evals/example-evaluation/README.md) |
 
 ## Contribution lifecycle
 
@@ -63,7 +82,7 @@ Never commit credentials, tokens, passwords, private keys, authentication cookie
 
 ## Prompts and agent roles
 
-Keep prompts that encode useful, tested behavior and are worth reusing. One-off requests do not need their own files. Project-specific prompts and roles stay with the project; shared agent roles compose reusable knowledge, skills, integrations, and constraints. Use the [agent template](templates/agent/) for a new role.
+Keep prompts that encode useful, tested behavior and are worth reusing. One-off requests do not need their own files. Project-specific prompts and roles stay with the project; shared agent roles compose reusable knowledge, skills, integrations, and constraints. Use the [agent template](projects/template-project/agents/example-agent/README.md) for a new role. Identify its purpose, boundaries, owners, required skills and knowledge, tools and integrations, operating constraints, and supporting evaluations.
 
 ## Skill standards
 
@@ -83,7 +102,7 @@ Skill names must use lowercase letters, digits, and hyphens. Prefer verb-led nam
 
 `SKILL.md` frontmatter must contain only `name` and `description`. Put both what the skill does and when it should trigger in the description. Keep detailed domain material in `references/`, and include resource directories only when the skill actually needs them.
 
-Start with the [skill template](templates/skill/example-skill/), and use the applicable skill tooling to initialize and validate actual skills.
+Start with the [skill template](projects/template-project/skills/example-skill/), and use the applicable skill tooling to initialize and validate actual skills.
 
 Scripts included in a skill must be run against a representative input before review. Include evaluation cases for fragile, safety-sensitive, or complex behavior.
 

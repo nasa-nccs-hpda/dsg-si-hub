@@ -15,13 +15,11 @@ ILAB Agentic AI collects project context, curated references, lightweight exampl
 
 | Area | Contents |
 | --- | --- |
+| [Projects](projects/README.md) | Project-owned context, examples, and agent resources |
 | [Knowledge](knowledge/README.md) | Shared scientific and technical references |
-| [Skills](skills/README.md) | Repeatable agent procedures |
-| [Agents](agents/README.md) | Reusable role configurations |
-| [Integrations](integrations/README.md) | External platforms and services |
-| [Evaluations](evals/README.md) | Evidence for agent and workflow behavior |
-| [Templates](templates/) | Starting points for contributions |
-| [Tools](tools/README.md) | Repository maintenance utilities |
+| [Documentation](docs/README.md) | Repository guidance and platform setup |
+
+[Contribution templates](CONTRIBUTING.md#templates) live beside the content they support. Other shared areas are created when implemented contributions need them.
 
 ## Existing guides
 

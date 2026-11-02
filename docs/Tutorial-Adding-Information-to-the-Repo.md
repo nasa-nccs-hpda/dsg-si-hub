@@ -22,10 +22,11 @@ This gives the next person an actionable starting point. A pasted conversation w
 Following the [basic workflow](../CONTRIBUTING.md#basic-workflow), a new project could start with:
 
 ```bash
-cp -r templates/project projects/example-project
+mkdir -p projects/example-project
+cp projects/template-project/{README.md,AGENTS.md,project.yaml} projects/example-project/
 ```
 
-The template provides `README.md`, `AGENTS.md`, and `project.yaml`. Fill them with the project's actual context; a useful contribution can be a small reference to work maintained in the project's own repository.
+The [project template](../projects/template-project/README.md) provides `README.md`, `AGENTS.md`, and `project.yaml`. Fill them with the project's actual context; a useful contribution can be a small reference to work maintained in the project's own repository. Copy the template's optional skill, agent, and evaluation examples individually when the project needs them.
 
 A landing page might look like this:
 
@@ -55,7 +56,7 @@ Adapt the example to documented project needs. The root agent instructions still
 
 ## Write a focused knowledge entry
 
-Suppose the session clarified how a project uses Cloud Physics Lidar (CPL) data. Start from the [dataset template](../templates/dataset-entry/README.md) and the [placement policy](../CONTRIBUTING.md#choose-the-contribution-type).
+Suppose the session clarified how a project uses Cloud Physics Lidar (CPL) data. Start from the [dataset template](../knowledge/templates/dataset-entry.md) and the [placement policy](../CONTRIBUTING.md#choose-the-contribution-type).
 
 An illustrative entry under `projects/example-project/knowledge/datasets/cpl.md` could contain:
 
@@ -150,7 +151,7 @@ This illustrates the reasoning a later contributor needs, rather than just recor
 
 ## Turn a repeated procedure into a skill
 
-If several sessions repeat the same scheduler investigation, that procedure may be worth capturing as a skill. Follow the [skill standards](../CONTRIBUTING.md#skill-standards) and use the [example skill](../templates/skill/example-skill/) as a starting point.
+If several sessions repeat the same scheduler investigation, that procedure may be worth capturing as a skill. Follow the [skill standards](../CONTRIBUTING.md#skill-standards) and use the [example skill](../projects/template-project/skills/example-skill/) as a starting point.
 
 A hypothetical scheduler skill could begin:
 
@@ -174,7 +175,7 @@ description: Diagnose failed or stalled Slurm GPU jobs when a contributor needs 
 Link to the project's scheduler guidance and known failure cases.
 ```
 
-This captures an action an agent can repeat. The underlying scientific context can remain in a knowledge entry, linked from the skill. A reusable reviewer role would instead start from the [agent template](../templates/agent/) and compose the skills and references it needs; see [prompts and agent roles](../CONTRIBUTING.md#prompts-and-agent-roles).
+This captures an action an agent can repeat. The underlying scientific context can remain in a knowledge entry, linked from the skill. A reusable reviewer role would instead start from the [agent template](../projects/template-project/agents/example-agent/) and compose the skills and references it needs; see [prompts and agent roles](../CONTRIBUTING.md#prompts-and-agent-roles).
 
 ## Prepare a handoff and resume from it
 

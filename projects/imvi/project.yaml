@@ -8,5 +8,5 @@ models: []
 skills: []
 knowledge: []
 integrations:
-  - integrations/nasa-mantle
+  - docs/NASA-Mantle-LLM-Resources.md
 agents: []

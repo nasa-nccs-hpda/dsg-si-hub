@@ -10,7 +10,7 @@ The contribution examples below describe where information belongs; they do not 
 
 ## Add a dataset note
 
-Copy `templates/dataset-entry/README.md` to:
+Copy the [dataset template](../../../knowledge/templates/dataset-entry.md) to:
 
 ```text
 projects/imvi/knowledge/datasets/<dataset-name>.md
@@ -20,10 +20,10 @@ Document how IMVI uses the dataset, where approved users obtain it, its importan
 
 ## Add a model entry
 
-Copy `templates/model-entry/` to:
+Copy the [model template](../../../knowledge/templates/model-entry.md) to:
 
 ```text
-projects/imvi/knowledge/models/<model-name>/
+projects/imvi/knowledge/models/<model-name>.md
 ```
 
 Describe how to configure, run, diagnose, and validate the model. If multiple projects use it, promote the entry to `knowledge/models/`.
@@ -40,4 +40,4 @@ Include symptoms, confirmed causes, safe diagnostic commands, resolution steps, 
 
 ## Add a skill
 
-Create a skill only when the procedure is repeatable and an agent should carry it out. Begin with `templates/skill/example-skill/`, rename the directory and skill, and add an evaluation case.
+Create a skill only when the procedure is repeatable and an agent should carry it out. Begin with the [example skill](../../template-project/skills/example-skill/), rename the directory and skill, and add an evaluation case.
