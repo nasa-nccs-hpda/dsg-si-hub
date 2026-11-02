@@ -1,9 +1,7 @@
 # Repository tools
 
-This directory is reserved for utilities that maintain this repository:
+This area is for utilities that maintain this repository. No utilities are implemented here yet.
 
-- `scaffold/`: create entries from approved templates
-- `validate/`: validate metadata, structure, links, and skills
-- `catalog/`: build searchable indexes or inventories
+Create utility subareas when implementations need them; possible categories are listed in the [on-demand structure plan](../docs/repository-improvement-plan.md#on-demand-structure).
 
 Runtime helpers used by one skill belong inside that skill's `scripts/` directory. External service instructions belong under `integrations/`.

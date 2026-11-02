@@ -51,7 +51,20 @@ Execute these eight issues strictly in order. Each issue after #6 depends on the
 
 Keep project-specific information under `projects/<project>/`; promote information to `knowledge/` only when reuse is demonstrated. Repeatable procedures belong in `skills/`, reusable roles in `agents/`, external-platform guidance in `integrations/`, and behavioral verification in `evals/`.
 
-Retain [templates](../templates/) as starting points. Create dataset, model, sensor, algorithm, troubleshooting, prompt, example, evaluation, skill, or agent subareas when real content needs them. Keep repository documentation flat except where a subarea contains real content, such as agent guidance or accepted decision records. Future categories belong in this plan and templates rather than empty tracked directories. Issue #8 implements removal of structural placeholders and correction of IMVI ignore rules.
+Retain [templates](../templates/) as starting points. Create dataset, model, sensor, algorithm, troubleshooting, prompt, example, evaluation, skill, or agent subareas when real content needs them. Keep repository documentation flat except where a subarea contains real content, such as agent guidance or accepted decision records. Future categories belong in this plan and templates rather than empty tracked directories.
+
+The following are possible categories, not an inventory of implemented directories. Create only the subareas needed by a contribution; do not recreate the entire taxonomy.
+
+| Area | Possible subareas and purpose |
+| --- | --- |
+| Shared knowledge | `missions/`, `sensors/`, `datasets/`, `models/`, `algorithms/`, `scientific-domains/`, and `computing-platforms/` for cross-project references |
+| Project knowledge | `overview/`, `datasets/`, `models/`, `sensors/`, `algorithms/`, and `troubleshooting/` for project-specific context |
+| Skills | `data-engineering/`, `earth-observation/`, `model-development/`, `scientific-computing/`, and `software-engineering/` for focused procedures when implemented |
+| Integrations | `slurm/` for scheduler guidance, `github/` for collaboration guidance, and `mcp/` for Model Context Protocol guidance |
+| Evaluations | `skills/` for focused skill scenarios, `agents/` for role behavior, and `projects/` for project acceptance cases |
+| Tools | `scaffold/` for creating entries, `validate/` for repository checks, and `catalog/` for indexes and inventories |
+
+Project prompts, examples, evaluations, skills, and agents follow the [project template](../templates/project/README.md). Documentation subareas such as `docs/adr/` require actual records; general guides remain directly under `docs/`.
 
 New directories use lowercase, hyphen-separated names. The existing `projects/PACE-VCF/` directory is a legacy path, retained to avoid disruptive link and history churn. Personal repository-local skills stay untracked through checkout-only exclusions in `.git/info/exclude`, rather than a shared ignore rule.
 

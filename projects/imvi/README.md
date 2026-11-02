@@ -6,6 +6,8 @@ The repository does not yet define IMVI's authoritative scope, model inventory, 
 
 ## Where to contribute
 
+Create these locations only when adding content that needs them; they are contribution paths, not an inventory of existing project material.
+
 - `knowledge/overview/`: project purpose, terminology, architecture, and contacts
 - `knowledge/datasets/`: inputs, outputs, provenance, access, and limitations
 - `knowledge/models/`: model purpose, configuration, execution, and validation
@@ -18,4 +20,4 @@ The repository does not yet define IMVI's authoritative scope, model inventory, 
 - `examples/`: safe, reproducible examples
 - `evals/`: project acceptance cases and expected outcomes
 
-Start with the [example contribution](examples/README.md) and copy a template from the repository's `templates/` directory.
+Start with the [contribution examples](examples/README.md) and copy a template from the repository's [templates](../../templates/) directory.
