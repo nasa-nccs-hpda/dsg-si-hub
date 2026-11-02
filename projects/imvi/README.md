@@ -4,7 +4,21 @@ This directory is the contribution workspace for IMVI. It provides a place to ca
 
 The repository does not yet define IMVI's authoritative scope, model inventory, or technical architecture. Project maintainers should replace this introductory text with reviewed project information.
 
+## Existing technical material
+
+- [Examples](examples/README.md): the Figure 6 reproduction and contribution
+  examples.
+
+## Removed material
+
+`rocke3d_jax/` was removed with the project author's authorization, relayed
+by the user on 2026-11-02. The [removal record](rocke3d-jax-removal.md)
+documents scope and historical sources. Scientific ownership and historical
+claims remain subject to the [IMVI blocker register](../../docs/blocker-register.md#imvi-001).
+
 ## Where to contribute
+
+Create these locations only when adding content that needs them; they are contribution paths, not an inventory of existing project material.
 
 - `knowledge/overview/`: project purpose, terminology, architecture, and contacts
 - `knowledge/datasets/`: inputs, outputs, provenance, access, and limitations
@@ -18,4 +32,4 @@ The repository does not yet define IMVI's authoritative scope, model inventory, 
 - `examples/`: safe, reproducible examples
 - `evals/`: project acceptance cases and expected outcomes
 
-Start with the [example contribution](examples/README.md) and copy a template from the repository's `templates/` directory.
+Start with the [examples index and contribution guidance](examples/README.md) and copy a template from the repository's [templates](../../templates/) directory.

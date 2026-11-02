@@ -12,8 +12,4 @@ List reviews, commands, examples, or evaluation cases used to check the contribu
 
 ## Checklist
 
-- [ ] I placed the contribution in the narrowest sensible location.
-- [ ] I identified owners and sources where applicable.
-- [ ] I checked links and commands.
-- [ ] I did not include credentials or restricted information.
-- [ ] I tested executable content or explained why it was not tested.
+- [ ] I completed the [contribution review checklist](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/blob/main/CONTRIBUTING.md#pull-request-checklist).
