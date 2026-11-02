@@ -8,6 +8,11 @@ non-tree vegetation, percent non-vegetated -- competitive with the existing
 MODIS VCF (MOD44B Collection 6/6.1) methodology, which relies on a smaller
 set of discrete spectral bands.
 
+The comparison also asks whether foundation-model embeddings (AlphaEarth)
+or deep-learning architectures (Spatial-CNN, Pixel-Transformer) add value
+beyond a gradient-boosted-tree baseline built on hand-engineered spectral
+indices.
+
 **Scientific motivation:**
 - PACE-OCI offers continuous hyperspectral coverage (340-895 nm at 2.5 nm
   resolution, plus 7 discrete SWIR bands 940-2260 nm) that MODIS's ~7
@@ -16,6 +21,26 @@ set of discrete spectral bands.
   structure and are only computable with contiguous hyperspectral bands.
 - Pigment indices (CCI, PRI, mARI) capture physiological vegetation state
   beyond what NDVI alone reflects.
+
+## Scientific context
+
+The project was shelved for write-up after Experiment 4 and resumed in
+September/October 2026 to correct the metrics (v3, then v4) and redo Experiments 2-3
+on them. The current scientific results use **metrics v4** (October 2026):
+the metrics were corrected (v3) and then de-duplicated and redefined to their
+original intent (v4), and the three chip models were retrained, checked for
+seed sensitivity, and run globally on all 291 MODIS-VCF land tiles. Results
+in this directory are the v4 results unless a page says otherwise; the
+shelved-era (v2) numbers are kept where they explain history and are marked
+as such.
+
+Project name, status, and maintainers are maintained in
+[project metadata](../../project.yaml). See the
+[project landing page](../../README.md#access-constraints) for access and
+execution constraints, and the [workflow retrospective](agentic-workflow.md)
+for how the agent and owner divided the work. Unresolved scientific and
+evidence requirements remain in the
+[blocker register](../../../../docs/blocker-register.md#pace-001).
 
 ## Experiment roadmap and status
 
@@ -30,9 +55,7 @@ set of discrete spectral bands.
 | 7 | Metrics v4: duplicate bands removed, metrics redefined to their original intent | Complete (October 2026) | `knowledge/algorithms/metrics-v4-definitions-and-duplicate-bands.md` |
 | 8 | v4 model study: band-count sweep, multi-seed ranking stability, MODIS-only vs PACE-only, final models, global 2 km maps | Complete (October 2026) | `knowledge/models/band-count-sweep.md`, `multi-seed-ranking-stability.md`, `modis-vs-pace-band-contribution.md`, `three-model-comparison.md` |
 
-The project was shelved for write-up after Experiment 4 and resumed in
-September/October 2026 to correct the metrics (v3, then v4) and redo Experiments 2-3
-on them. Experiment 5 is still the natural next modelling step.
+Experiment 5 is still the natural next modelling step.
 
 ## Metrics versions
 
@@ -90,7 +113,8 @@ project adds launchers, checks and comparisons around them:
                  `-- comparison against MOD44B on pixels with real inputs
 ```
 
-How to run it on NCCS: `skills/run-pace-vcf-pipeline/`.
+How to run it on NCCS: the
+[pipeline run book](../../skills/run-pace-vcf-pipeline/SKILL.md).
 
 ## Notebook families (private repo)
 
