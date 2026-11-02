@@ -2,9 +2,7 @@
 
 Setup instructions for running Claude Code on NASA Discover using the NASA LiteLLM proxy (NMC AI Hub).
 
-This guide parallels [`codex_nmc_ai_hub_discover.md`](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/blob/main/docs/codex_nmc_ai_hub_discover.md).
-
-> **NASA configuration:** The Mission AI Hub configuration supplied by users maps Claude Code’s `sonnet`, `opus`, and `haiku` selections to NASA LiteLLM aliases. These values are provided as the site configuration; the guide has not been tested live on Discover.
+**Note**: if you would like to use both filesystems for agentic development, you will have to perform these steps on both filesystems.
 
 ## 1. Install Claude Code
 

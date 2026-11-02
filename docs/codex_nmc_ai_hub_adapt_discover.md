@@ -1,6 +1,8 @@
-# Codex CLI Setup on NASA Discover
+# Codex CLI Setup on NASA ADAPT/Discover
 
-Setup instructions for running Codex CLI on NASA Discover using the NASA LiteLLM proxy.
+Setup instructions for running Codex CLI on NASA ADAPT/Discover filesystems using the NASA LiteLLM proxy.
+
+**Note**: if you would like to use both filesystems for agentic development, you will have to perform these steps on both filesystems.
 
 ## 1. Install Codex
 
