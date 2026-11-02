@@ -6,14 +6,15 @@ The repository does not yet define IMVI's authoritative scope, model inventory, 
 
 ## Existing technical material
 
-- [ROCKE-3D/JAX technical navigation](rocke3d_jax/README.md): entry points for
-  implementation fidelity, benchmark evidence, retained summaries, and GPU
-  operating guidance. Conflicting scientific claims remain subject to the
-  [IMVI blocker register](../../docs/blocker-register.md#imvi-001) and an
-  authorized scientific owner; this material does not establish reviewed
-  project scope.
 - [Examples](examples/README.md): the Figure 6 reproduction and contribution
   examples.
+
+## Removed material
+
+`rocke3d_jax/` was removed with the project author's authorization, relayed
+by the user on 2026-11-02. The [removal record](rocke3d-jax-removal.md)
+documents scope and historical sources. Scientific ownership and historical
+claims remain subject to the [IMVI blocker register](../../docs/blocker-register.md#imvi-001).
 
 ## Where to contribute
 
