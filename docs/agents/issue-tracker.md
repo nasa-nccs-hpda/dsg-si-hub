@@ -28,6 +28,35 @@ Before the first issue creation in a session, verify the target with
 - Close: post an explanatory comment, then `gh issue close <number>`.
   Post comments separately even if the issue is already closed.
 
+## Improvement issue progress
+
+Use exactly one of these progress labels on each repository-improvement
+issue, including the parent issue:
+
+| Label | Meaning |
+| --- | --- |
+| `status: not started` | Implementation has not begun. |
+| `status: in progress` | Implementation or validation is underway. |
+| `status: locally complete` | Implementation and applicable checks are complete locally; the changes have not all been pushed. |
+| `status: pushed awaiting pr` | Implementation is committed and pushed; PR creation, review, or merge remains pending. |
+| `status: merged` | The implementation has merged into the PR's target branch, with linked merge evidence. |
+
+Replace the previous `status:` label when progress changes; preserve other
+labels. Update the issue's implementation notes with verification and
+commit or PR links when applicable. Keep issues open until merged, then
+post the completion evidence and close them. Mark the parent `in progress`
+while child issues remain unfinished, and `merged` only after all children
+are merged and its completion criteria are met.
+
+For the ordered refactor, implement issues in the plan's sequence. Under
+the user's workflow of opening one PR after all implementation tickets
+are done, the next issue may start when its predecessor reaches
+`status: pushed awaiting pr`; waiting for that predecessor to close is not
+required. Create the PR after all implementation tickets reach that stage.
+
+These labels track issue execution. Blockers retain the separate lifecycle
+defined in the [blocker register](../blocker-register.md#lifecycle-and-maintenance).
+
 ## Pull requests as a triage surface
 
 **PRs as a request surface: no.**
