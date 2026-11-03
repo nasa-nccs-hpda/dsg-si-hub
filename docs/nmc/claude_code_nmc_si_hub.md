@@ -1,6 +1,6 @@
 # Claude Code advanced usage with NMC AI Hub
 
-Complete [installation, key loading, NASA gateway configuration, and a first session in the centralized guide](nmc_ai_hub.md). This supplement covers Claude model selection, credential options, permission modes, and troubleshooting for local workstations and ADAPT/Discover.
+Complete [installation, key loading, NASA gateway configuration, and a first session in the centralized guide](nmc_si_hub.md). This supplement covers Claude model selection, credential options, permission modes, and troubleshooting for local workstations and ADAPT/Discover.
 
 Documentation owner: Repository maintainers. Updated: 2026-11-03. The central guide preserves this page's previous site-provided aliases and flags. Public client documentation was checked on that date; NASA authentication, model availability, and tool compatibility have not been independently tested.
 
@@ -8,7 +8,7 @@ Documentation owner: Repository maintainers. Updated: 2026-11-03. The central gu
 
 If you set `CLAUDE_CONFIG_DIR`, use its `settings.json` instead of the default `~/.claude/settings.json`. Keep that location consistent when installing, configuring, and launching Claude Code.
 
-The original site configuration put `ANTHROPIC_AUTH_TOKEN` in the JSON `env` block. The [central guide's environment mapping](nmc_ai_hub.md#configure-claude-code) keeps the secret out of that file. If site policy requires private-file storage, restrict its permissions (`chmod 600 ~/.claude/settings.json` on Linux/macOS). Never commit the token. Load the mapping after `NASA_LITELLM_API_KEY` when using approved credential tooling.
+The original site configuration put `ANTHROPIC_AUTH_TOKEN` in the JSON `env` block. The [central guide's environment mapping](nmc_si_hub.md#configure-claude-code) keeps the secret out of that file. If site policy requires private-file storage, restrict its permissions (`chmod 600 ~/.claude/settings.json` on Linux/macOS). Never commit the token. Load the mapping after `NASA_LITELLM_API_KEY` when using approved credential tooling.
 
 ## Model selection
 
@@ -84,7 +84,7 @@ claude --permission-mode acceptEdits --continue
 
 ## Troubleshooting
 
-**Installation, architecture, updates, command lookup, or a slow first prompt:** See the [shared setup and troubleshooting guide](nmc_ai_hub.md).
+**Installation, architecture, updates, command lookup, or a slow first prompt:** See the [shared setup and troubleshooting guide](nmc_si_hub.md).
 
 **Authentication errors or an unexpected Anthropic login prompt:** Check the effective `ANTHROPIC_BASE_URL` and `model` / `ANTHROPIC_DEFAULT_*_MODEL` aliases in your settings, confirm `ANTHROPIC_AUTH_TOKEN` is loaded in the launching shell, and unset a conflicting `ANTHROPIC_API_KEY`. Check local authentication policy before changing sign-in settings.
 
@@ -101,5 +101,5 @@ claude --permission-mode acceptEdits --continue
 - [LiteLLM: Connect Claude Code](https://docs.litellm.ai/docs/proxy/client_setup/claude_code)
 - [Claude Code gateway connection](https://code.claude.com/docs/en/llm-gateway-connect)
 - [Claude Code CLI reference](https://code.claude.com/docs/en/cli-reference)
-- [Shared NASA setup guide](nmc_ai_hub.md)
-- [Codex advanced usage](codex_nmc_ai_hub_adapt_discover.md)
+- [Shared NASA setup guide](nmc_si_hub.md)
+- [Codex advanced usage](codex_nmc_si_hub.md)

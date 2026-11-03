@@ -1,12 +1,12 @@
 # Codex CLI advanced usage with NMC AI Hub
 
-Complete [installation, key loading, NASA provider configuration, and a first session in the centralized guide](nmc_ai_hub.md). This supplement covers Codex permission modes, session options, and troubleshooting for local workstations and ADAPT/Discover.
+Complete [installation, key loading, NASA provider configuration, and a first session in the centralized guide](nmc_si_hub.md). This supplement covers Codex permission modes, session options, and troubleshooting for local workstations and ADAPT/Discover.
 
 Documentation owner: Repository maintainers. Updated: 2026-11-03. The central guide retains this page's existing NASA endpoint and `gpt-6-astra` alias; current gateway access has not been independently tested.
 
 ## Project trust and configuration location
 
-Allow Codex to prompt for project trust when you open a repository. If you deliberately persist a trust entry, use your own project's absolute path. Trust entries and UI-generated settings are not required in the [NASA provider example](nmc_ai_hub.md#configure-codex-cli).
+Allow Codex to prompt for project trust when you open a repository. If you deliberately persist a trust entry, use your own project's absolute path. Trust entries and UI-generated settings are not required in the [NASA provider example](nmc_si_hub.md#configure-codex-cli).
 
 If you set `CODEX_HOME`, edit `config.toml` inside that directory instead of the default `~/.codex`. Keep that location consistent when installing, configuring, and launching Codex.
 
@@ -77,7 +77,7 @@ codex -a never -s danger-full-access resume --last
 - **Missing key or login prompt:** Confirm `model_provider = "nasa"` and that `NASA_LITELLM_API_KEY` is loaded in the launching shell. The custom provider does not require a separate ChatGPT login.
 - **Model or Responses API errors:** Confirm the exact NASA alias, your key's permissions, and Responses/tool/streaming support with the Mission AI Hub team.
 - **Sandbox startup or permission errors:** Check the execution node's sandbox support and allowed paths. Do not automatically switch to unrestricted mode to work around an error.
-- **Legacy local configuration:** Replace the old guide's `OPENAI_API_BASE` / `openai_base_url` approach with the [central guide's provider table](nmc_ai_hub.md#configure-codex-cli). An old `OPENAI_API_KEY` alone does not supply `NASA_LITELLM_API_KEY`.
-- **Installation, architecture, updates, or slow first prompt:** See the [shared guide](nmc_ai_hub.md).
+- **Legacy local configuration:** Replace the old guide's `OPENAI_API_BASE` / `openai_base_url` approach with the [central guide's provider table](nmc_si_hub.md#configure-codex-cli). An old `OPENAI_API_KEY` alone does not supply `NASA_LITELLM_API_KEY`.
+- **Installation, architecture, updates, or slow first prompt:** See the [shared guide](nmc_si_hub.md).
 
 Sources checked for client syntax on 2026-11-03: [OpenAI configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference), [CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli), and local `codex --help` (0.166.0). NASA authentication and sandbox execution were not tested.

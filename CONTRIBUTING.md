@@ -1,6 +1,6 @@
 # Contributing
 
-Contributions can be as small as a corrected link or as substantial as a tested agent skill. This document owns contribution placement, lifecycle, standards, and review checks. For worked examples, use the [contribution tutorial](docs/Tutorial-Adding-Information-to-the-Repo.md); agents must also follow [AGENTS.md](AGENTS.md).
+Contributions can be as small as a corrected link or as substantial as a tested agent skill. This document owns contribution placement, lifecycle, standards, and review checks. For worked examples, use the [contribution tutorial](docs/development/Tutorial-Adding-Information-to-the-Repo.md); agents must also follow [AGENTS.md](AGENTS.md).
 
 ## Choose the contribution type
 
