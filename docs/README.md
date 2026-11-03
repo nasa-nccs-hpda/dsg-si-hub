@@ -14,8 +14,8 @@ This directory contains repository-wide guides and architecture documentation.
 - [NASA Mantle Local LLM Resources](NASA-Mantle-LLM-Resources.md)
 - [NASA Mantle access from Jupyter Notebook Intelligence](NASA-Mantle-Jupyter-Notebook-Intelligence.md)
 - [AI Usage Optimization Guide](TokenSavingStrategies.md)
-- [NMC AI Hub Usage for Codex CLI](nmc_ai_hub.md)
-- [Codex CLI setup on NASA ADAPT/Discover](codex_nmc_ai_hub_adapt_discover.md)
-- [Claude Code setup on NASA Discover](claude_code_nmc_ai_hub_adapt_discover.md)
+- [NMC AI Hub: complete Codex and Claude installation and setup](nmc_ai_hub.md)
+- [Codex CLI advanced usage with NMC AI Hub](codex_nmc_ai_hub_adapt_discover.md)
+- [Claude Code advanced usage with NMC AI Hub](claude_code_nmc_ai_hub_adapt_discover.md)
 
 Use project directories for project-specific knowledge and `knowledge/` for shared scientific or technical reference material.
