@@ -1,11 +1,11 @@
 # Lessons Learned
 
-Practical lessons from building and running agentic AI workflows on ILAB/ADAPT.
+Practical lessons from building and running agentic SI workflows on ILAB/ADAPT.
 
 ## Index
 
 **Platforms and cost**
-- [NMC AI Hub credits are limited](#nmc-ai-hub-credits-are-limited)
+- [NMC SI Hub credits are limited](#nmc-si-hub-credits-are-limited)
 - [Match the model to the task](#match-the-model-to-the-task)
 - [ChatGSFC Agent Builder works, but with friction](#chatgsfc-agent-builder-works-but-with-friction)
 - [VS Code with Claude or Codex extensions is easier to work with](#vs-code-with-claude-or-codex-extensions-is-easier-to-work-with)
@@ -38,13 +38,13 @@ Practical lessons from building and running agentic AI workflows on ILAB/ADAPT.
 
 ## Platforms and cost
 
-### NMC AI Hub credits are limited
+### NMC SI Hub credits are limited
 
 **Date:** 2026-09-29
 **Author:** Melanie Frost
-**Tags:** `nmc-ai-hub`, `cost`, `tokens`
+**Tags:** `nmc-si-hub`, `cost`, `tokens`
 
-**Lesson:** The NMC AI Hub doesn't come with many credits. Scientific workflows use a lot of tokens, so we will probably need to pay for more.
+**Lesson:** The NMC SI Hub doesn't come with many credits. Scientific workflows use a lot of tokens, so we will probably need to pay for more.
 
 **Recommendation:**
 - Plan for token costs when scoping scientific workflow projects.
@@ -73,7 +73,7 @@ Practical lessons from building and running agentic AI workflows on ILAB/ADAPT.
 - Model names change every few months. Check the current lists before relying on this table:
   - Claude: https://docs.claude.com/en/docs/about-claude/models/overview
   - Codex: https://developers.openai.com/codex/models
-- Models available through the NMC AI Hub or ChatGSFC may differ from these lists.
+- Models available through the NMC SI Hub or ChatGSFC may differ from these lists.
 - Another option is to let the **agent automatically select the model based on the complexity of each task** instead of using the most capable model for everything.
 
 For example, Claude Sonnet can handle most routine coding work, while Claude Opus can be reserved for tasks that require deeper reasoning.
@@ -122,7 +122,7 @@ For example, Claude Sonnet can handle most routine coding work, while Claude Opu
 - Connect to the internet, which helps a lot when working with repos
 
 **Recommendation:**
-- Use VS Code with an AI extension for development work on ADAPT instead of copying things in and out of a chat window.
+- Use VS Code with an SI extension for development work on ADAPT instead of copying things in and out of a chat window.
 
 ---
 
@@ -244,7 +244,7 @@ For example, Claude Sonnet can handle most routine coding work, while Claude Opu
 **Lesson:** Don't let the agent write or edit files without asking you first.
 
 **Recommendation:**
-- Set your AI extension so file writes and edits need your approval.
+- Set your SI extension so file writes and edits need your approval.
 - Put this rule in your skills file as well (see [Start with a skills file for persistent preferences](#start-with-a-skills-file-for-persistent-preferences)).
 
 ---

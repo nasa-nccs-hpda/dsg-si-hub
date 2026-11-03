@@ -51,7 +51,7 @@ Templates live beside the content they support and contain illustrative fields, 
 New knowledge usually begins close to the people using it:
 
 ```text
-projects/imvi/knowledge/datasets/example.md
+projects/nexus/knowledge/datasets/example.md
     -> knowledge/datasets/example.md
     -> skills/earth-observation/process-example-data/
     -> evals/skills/process-example-data/

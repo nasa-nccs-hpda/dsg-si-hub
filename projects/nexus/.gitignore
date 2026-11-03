@@ -11,6 +11,7 @@ a.out
 *~
 build/*
 *.png
+!examples/rocke3d-figure6/figure6_reproduction.png
 *.pdf
 *.nc
 *.pik

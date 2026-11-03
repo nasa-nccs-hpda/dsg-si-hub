@@ -8,5 +8,5 @@ Start from the [project template](template-project/README.md) and follow the [co
 
 ## Projects
 
-- [IMVI](imvi/README.md)
+- [Nexus](nexus/README.md)
 - [PACE-VCF](PACE-VCF/README.md)

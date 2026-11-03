@@ -1,4 +1,4 @@
-# Codex CLI advanced usage with NMC AI Hub
+# Codex CLI advanced usage with NMC SI Hub
 
 Complete [installation, key loading, NASA provider configuration, and a first session in the centralized guide](nmc_si_hub.md). This supplement covers Codex permission modes, session options, and troubleshooting for local workstations and ADAPT/Discover.
 
@@ -75,7 +75,7 @@ codex -a never -s danger-full-access resume --last
 ## Troubleshooting and references
 
 - **Missing key or login prompt:** Confirm `model_provider = "nasa"` and that `NASA_LITELLM_API_KEY` is loaded in the launching shell. The custom provider does not require a separate ChatGPT login.
-- **Model or Responses API errors:** Confirm the exact NASA alias, your key's permissions, and Responses/tool/streaming support with the Mission AI Hub team.
+- **Model or Responses API errors:** Confirm the exact NASA alias, your key's permissions, and Responses/tool/streaming support with the Mission SI Hub team.
 - **Sandbox startup or permission errors:** Check the execution node's sandbox support and allowed paths. Do not automatically switch to unrestricted mode to work around an error.
 - **Legacy local configuration:** Replace the old guide's `OPENAI_API_BASE` / `openai_base_url` approach with the [central guide's provider table](nmc_si_hub.md#configure-codex-cli). An old `OPENAI_API_KEY` alone does not supply `NASA_LITELLM_API_KEY`.
 - **Installation, architecture, updates, or slow first prompt:** See the [shared guide](nmc_si_hub.md).

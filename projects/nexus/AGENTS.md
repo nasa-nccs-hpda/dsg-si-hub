@@ -1,7 +1,7 @@
-# IMVI agent instructions
+# Nexus agent instructions
 
 - Treat documents in this directory as project-local unless they explicitly reference a shared canonical entry.
-- Do not infer IMVI requirements, model behavior, interfaces, or validation criteria that are not documented.
+- Do not infer Nexus requirements, model behavior, interfaces, or validation criteria that are not documented.
 - Prefer adding draft knowledge under this project before creating shared repository guidance.
 - Record sources and identify the responsible owner for substantive technical claims.
 - Never include credentials, protected datasets, or sensitive operational details.

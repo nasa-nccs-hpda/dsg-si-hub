@@ -1,10 +1,10 @@
-# AI Usage Optimization Guide for Scientific Software Engineering and HPC Teams
+# SI Usage Optimization Guide for Scientific Software Engineering and HPC Teams
 
 ## Overview
 
-As AI tools become increasingly integrated into software development workflows, managing token consumption is essential for controlling costs while maintaining productivity. This guide captures practical strategies for maximizing the value of AI-assisted development, particularly for scientific computing, HPC, Earth science modeling, GPU acceleration, and large-scale software engineering projects.
+As SI tools become increasingly integrated into software development workflows, managing token consumption is essential for controlling costs while maintaining productivity. This guide captures practical strategies for maximizing the value of SI-assisted development, particularly for scientific computing, HPC, Earth science modeling, GPU acceleration, and large-scale software engineering projects.
 
-The recommendations in this document have been distilled from real-world usage involving code translation, model deployment, scientific software modernization, GPU optimization, and AI-assisted software engineering.
+The recommendations in this document have been distilled from real-world usage involving code translation, model deployment, scientific software modernization, GPU optimization, and SI-assisted software engineering.
 
 ---
 
@@ -28,7 +28,7 @@ The recommendations in this document have been distilled from real-world usage i
 
 # Why Token Efficiency Matters
 
-Most AI usage costs originate from:
+Most SI usage costs originate from:
 
 * Large context windows
 * Repeated code pasting
@@ -50,7 +50,7 @@ Benefits of efficient workflows include:
 
 # Understanding Where Tokens Are Consumed
 
-The AI processes:
+The SI processes:
 
 ```
 Input Tokens
@@ -225,7 +225,7 @@ Translate this function to CUDA.
 
 Before continuing a long conversation:
 
-Ask AI:
+Ask SI:
 
 ```text
 Summarize this conversation in 20 bullet points.
@@ -399,7 +399,7 @@ Recommended workflow:
 
 # Multi-Agent Workflows
 
-Many modern AI platforms support multiple agents.
+Many modern SI platforms support multiple agents.
 
 Recommended pattern:
 
@@ -659,7 +659,7 @@ For scientific software engineering teams, the following standard is recommended
 4. Compress context every 50–100 messages.
 5. Reserve premium models for architecture and scientific reasoning.
 6. Use small models for documentation and boilerplate generation.
-7. Review AI-generated code exactly as human-generated code.
+7. Review SI-generated code exactly as human-generated code.
 8. Track token consumption alongside engineering metrics.
 
-Following these practices typically provides the best balance between cost, speed, and engineering effectiveness for AI-assisted development in research, HPC, and operational software environments.
+Following these practices typically provides the best balance between cost, speed, and engineering effectiveness for SI-assisted development in research, HPC, and operational software environments.

@@ -1,6 +1,6 @@
-# NMC AI Hub setup for Codex CLI and Claude Code
+# NMC SI Hub setup for Codex CLI and Claude Code
 
-Codex CLI and Claude Code are assistants you use from a terminal to explain code, work with files, and help make changes. This guide connects them to NASA Mission AI Hub (NMC AI Hub) on your own computer or on the ADAPT/Discover NASA filesystems. Follow the steps for either tool or both. The supporting guides cover additional options/tips and tricks:
+Codex CLI and Claude Code are assistants you use from a terminal to explain code, work with files, and help make changes. This guide connects them to NASA Mission SI Hub (NMC SI Hub) on your own computer or on the ADAPT/Discover NASA filesystems. Follow the steps for either tool or both. The supporting guides cover additional options/tips and tricks:
 
 - [Codex CLI advanced usage and troubleshooting](codex_nmc_si_hub.md)
 - [Claude Code advanced usage and troubleshooting](claude_code_nmc_si_hub.md)
@@ -9,7 +9,7 @@ Codex CLI and Claude Code are assistants you use from a terminal to explain code
 
 1. Go to [NASA Access Management System (NAMS)](https://nams.nasa.gov/).
 
-2. Under **New request**, in the middle of the screen, enter **Mission AI Hub** and press Enter.
+2. Under **New request**, in the middle of the screen, enter **Mission SI Hub** and press Enter.
 
 3. Select the option with ID **272304**; this should be the first result.
 
@@ -17,7 +17,7 @@ Codex CLI and Claude Code are assistants you use from a terminal to explain code
 
 - Select **trial** for the smaller option, which gives you a **$25/month token budget**.
 - Select **Paid** for the larger option billed by token usage.
-- Ask the Mission AI Hub team about current budgets and billing if needed. Visit [Mission AI Hub Teams Channel](https://teams.microsoft.com/l/channel/19%3A6b44e9140031485790c07a9e6f65daaf%40thread.tacv2/Mission%20AI%20Hub?groupId=276ce13e-67d6-4fd0-82c9-9638d30b19ac&tenantId=7005d458-45be-48ae-8140-d43da96dd17b) for more.
+- Ask the Mission SI Hub team about current budgets and billing if needed. Visit [Mission SI Hub Teams Channel](https://teams.microsoft.com/l/channel/19%3A6b44e9140031485790c07a9e6f65daaf%40thread.tacv2/Mission%20AI%20Hub?groupId=276ce13e-67d6-4fd0-82c9-9638d30b19ac&tenantId=7005d458-45be-48ae-8140-d43da96dd17b) for more.
 
 5. In **data classification**, select Moderate or ITAR data if your work requires it. Otherwise, uncheck **moderate**, which is selected by default. Request the classification your work requires and use only data authorized for your approved service and environment.
 
@@ -27,9 +27,9 @@ Codex CLI and Claude Code are assistants you use from a terminal to explain code
 
 ## 2. Create a virtual key (after NAMS request has been approved)
 
-**Note: this will not work unless the Mission AI Hub request has been approved!**
+**Note: this will not work unless the Mission SI Hub request has been approved!**
 
-1. Open the [Mission AI Hub key-management portal](https://proxy.fast.luna.nasa.gov/ui/) and sign in with NASA Launchpad.
+1. Open the [Mission SI Hub key-management portal](https://proxy.fast.luna.nasa.gov/ui/) and sign in with NASA Launchpad.
 
 2. Click the large blue **create new key** button.
 
@@ -45,7 +45,7 @@ Codex CLI and Claude Code are assistants you use from a terminal to explain code
 
 8. In the pop-up, click **copy virtual key**. Save it using an institutionally approved credential store, then load it as described in step 4. Keep the key out of repository files, shell history, shared notes, and screenshots.
 
-If your requested team is missing, check with the Mission AI Hub team before creating a key for another team. [Mission AI Hub Teams Channel](https://teams.microsoft.com/l/channel/19%3A6b44e9140031485790c07a9e6f65daaf%40thread.tacv2/Mission%20AI%20Hub?groupId=276ce13e-67d6-4fd0-82c9-9638d30b19ac&tenantId=7005d458-45be-48ae-8140-d43da96dd17b)
+If your requested team is missing, check with the Mission SI Hub team before creating a key for another team. [Mission SI Hub Teams Channel](https://teams.microsoft.com/l/channel/19%3A6b44e9140031485790c07a9e6f65daaf%40thread.tacv2/Mission%20AI%20Hub?groupId=276ce13e-67d6-4fd0-82c9-9638d30b19ac&tenantId=7005d458-45be-48ae-8140-d43da96dd17b)
 
 ## 3. Install Codex/Claude client
 
@@ -159,7 +159,7 @@ Grace nodes use a different processor (arm64) from the login nodes. To run there
 
 ## 4. Load your key
 
-Your virtual key is like a password: it lets the tools use your Mission AI Hub access and budget. Loading it here makes it available to programs started from this terminal, without saving it in your project files.
+Your virtual key is like a password: it lets the tools use your Mission SI Hub access and budget. Loading it here makes it available to programs started from this terminal, without saving it in your project files.
 
 1. Find the virtual key you saved in step 2. Keep it out of shared notes, screenshots, and code.
 
@@ -168,7 +168,7 @@ Your virtual key is like a password: it lets the tools use your Mission AI Hub a
    **ADAPT/Discover or macOS:**
 
    ```bash
-   printf 'Mission AI Hub virtual key: '
+   printf 'Mission SI Hub virtual key: '
    read -r -s NASA_LITELLM_API_KEY
    printf '\n'
    export NASA_LITELLM_API_KEY
@@ -181,7 +181,7 @@ Your virtual key is like a password: it lets the tools use your Mission AI Hub a
    **Windows PowerShell:**
 
    ```powershell
-   $nmcCredential = Get-Credential -UserName 'Mission AI Hub' -Message 'Paste your virtual key in the password field'
+   $nmcCredential = Get-Credential -UserName 'Mission SI Hub' -Message 'Paste your virtual key in the password field'
    $env:NASA_LITELLM_API_KEY = $nmcCredential.GetNetworkCredential().Password
    $env:ANTHROPIC_AUTH_TOKEN = $env:NASA_LITELLM_API_KEY
    Remove-Item Env:ANTHROPIC_API_KEY -ErrorAction SilentlyContinue
@@ -206,11 +206,11 @@ Your virtual key is like a password: it lets the tools use your Mission AI Hub a
 
 4. Keep this terminal open and continue below. **Repeat this step whenever you open a new terminal to use the tools.** If your institution provides approved software that loads credentials for you, you can use that instead. This check confirms that a key was entered; your first request in step 6 will check whether it works.
 
-## 5. Configure Claude/Codex tool(s) to use NMC AI Hub
+## 5. Configure Claude/Codex tool(s) to use NMC SI Hub
 
-This one-time setup tells agents to send requests through Mission AI Hub. Complete the subsection for each tool you installed (Claude/Codex), on each computer or system where you use it. The same virtual key can serve both tools when your Hub team grants access to their models.
+This one-time setup tells agents to send requests through Mission SI Hub. Complete the subsection for each tool you installed (Claude/Codex), on each computer or system where you use it. The same virtual key can serve both tools when your Hub team grants access to their models.
 
-If a settings file already has content, keep it and merge the settings below. Ask for help on the [Mission AI Hub Teams Channel](https://teams.microsoft.com/l/channel/19%3A6b44e9140031485790c07a9e6f65daaf%40thread.tacv2/Mission%20AI%20Hub?groupId=276ce13e-67d6-4fd0-82c9-9638d30b19ac&tenantId=7005d458-45be-48ae-8140-d43da96dd17b) if you are unsure how to combine them.
+If a settings file already has content, keep it and merge the settings below. Ask for help on the [Mission SI Hub Teams Channel](https://teams.microsoft.com/l/channel/19%3A6b44e9140031485790c07a9e6f65daaf%40thread.tacv2/Mission%20AI%20Hub?groupId=276ce13e-67d6-4fd0-82c9-9638d30b19ac&tenantId=7005d458-45be-48ae-8140-d43da96dd17b) if you are unsure how to combine them.
 
 ### Configure Codex CLI
 
@@ -310,7 +310,7 @@ In the terminal where you loaded your key, open your project folder with `cd /pa
 
 The first time you open a project, the tool may ask whether you trust the folder. Confirm if it is your project or another folder you trust.
 
-**For your first request, try:** `Summarize this repository's purpose from its README without changing any files.`A successful reply should describe the project from its README. If you see a key or model error instead, check steps 4 and 5, then ask the Mission AI Hub team to confirm your access. If you would like more specific options for claude or codex, see their docs: [claude](claude_code_nmc_si_hub.md), [codex](codex_nmc_si_hub.md).
+**For your first request, try:** `Summarize this repository's purpose from its README without changing any files.`A successful reply should describe the project from its README. If you see a key or model error instead, check steps 4 and 5, then ask the Mission SI Hub team to confirm your access. If you would like more specific options for claude or codex, see their docs: [claude](claude_code_nmc_si_hub.md), [codex](codex_nmc_si_hub.md).
 
 **Note**: it is common for the first prompt to take much longer than subsequent prompts (**upwards of 2 minutes with no output**); make sure to wait until an error message or response shows up, don't close the window early.
 
@@ -319,5 +319,5 @@ The first time you open a project, the tool may ask whether you trust the folder
 - **Command not found:** On ADAPT/Discover, repeat the `export PATH=...` command in step 3. On a local computer, close and reopen your terminal after installing.
 - **Permission errors:** Check that your storage has free space and allows you to run programs. Ask site support if you are unsure.
 - **Exec format error on an ADAPT Grace node:** Rerun the installer on that node as described in step 3. On other nodes, ask site support to check whether the installed program matches the processor.
-- **Key or model errors:** Repeat key loading in step 4 and check the tool settings in step 5, then ask the Mission AI Hub team to confirm your model access. The client supplements cover additional troubleshooting.
+- **Key or model errors:** Repeat key loading in step 4 and check the tool settings in step 5, then ask the Mission SI Hub team to confirm your model access. The client supplements cover additional troubleshooting.
 - **Updates:** Close sessions using that installation across all nodes first. On ADAPT/Discover, rerun `install-nmc-clients.sh` with the same client flags. On local computers, rerun the Codex installation command or use `claude update` for Claude. Claude native installs auto-update by default. Follow [Anthropic's network-storage guidance](https://code.claude.com/docs/en/setup#install-on-network-storage) before concurrent use across nodes, so updates preserve executables still in use elsewhere.

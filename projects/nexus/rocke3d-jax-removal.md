@@ -1,6 +1,6 @@
 # ROCKE-3D/JAX removal record
 
-- Decision source: IMVI project author, as relayed by the user on 2026-11-02.
+- Decision source: Nexus project author, as relayed by the user on 2026-11-02.
   The author's name was not provided; this does not assign project maintainership.
 - Last reviewed: 2026-11-02 (removal scope and references only).
 - Execution: [issue #12](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/12),
@@ -23,7 +23,7 @@ The removed subtree contains **245 tracked files, 481,697,664 bytes
 inventory and its additions to the technical README were not committed and
 are superseded. This record replaces that deferred cleanup deliverable.
 
-The [remaining IMVI workspace](README.md), including the
+The [remaining Nexus workspace](README.md), including the
 [Figure 6 example](examples/rocke3d-figure6/README.md), is outside the deletion
 scope. The removal does not change the Figure 6 script, notebook, or retained
 image, or the other project-level implementations and tests.

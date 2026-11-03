@@ -1,10 +1,10 @@
 # ROCKE-3D Figure 6 reproduction
 
-- Project: [IMVI](../../README.md); scientific ownership remains unassigned in [project metadata](../../project.yaml).
+- Project: [Nexus](../../README.md); scientific ownership remains unassigned in [project metadata](../../project.yaml).
 - Documentation last reviewed: 2026-11-02 (placement and execution guidance; scientific results were not revalidated).
 - Relocation scope: [issue #9](https://github.com/nasa-nccs-hpda/ilab-agentic-ai/issues/9).
 
-This example plots global annual net planetary radiation from the ROCKE-3D 2.0 publication supplement. It reads existing simulation output; it does not run ROCKE-3D or validate the IMVI JAX implementation.
+This example plots global annual net planetary radiation from the ROCKE-3D 2.0 publication supplement. It reads existing simulation output; it does not run ROCKE-3D or validate the Nexus JAX implementation.
 
 ## Source and retained files
 
@@ -25,7 +25,7 @@ These files previously lived in the repository-root `notebooks/` directory. The 
 From the repository root, enter this directory and prepare a Python environment:
 
 ```bash
-cd projects/imvi/examples/rocke3d-figure6
+cd projects/nexus/examples/rocke3d-figure6
 python3 -m venv .venv
 source .venv/bin/activate
 python3 -m pip install netCDF4 'matplotlib>=3.9,<3.11' jupyterlab ipykernel
@@ -75,4 +75,4 @@ The script and notebook catch configuration failures, print warnings, and contin
 
 The retained image has no separate run manifest identifying its exact inputs, configuration set, or package versions. The commands above describe how to generate a new plot; byte-for-byte regeneration of the retained image is not established. Record configuration names, year windows, warnings, package versions, and input provenance when reviewing a new run. Keep generated caches and trial plots out of contributions unless deliberately curated as evidence.
 
-This relocation preserves the original evidence without reconciling its claims. IMVI's scientific ownership and validation decisions remain subject to the [open IMVI blockers](../../../../docs/blocker-register.md#imvi-001).
+This relocation preserves the original evidence without reconciling its claims. Nexus's scientific ownership and validation decisions remain subject to the [open Nexus blockers](../../../../docs/blocker-register.md#imvi-001).

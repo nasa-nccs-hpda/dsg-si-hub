@@ -48,7 +48,7 @@ https://mantle.scipai.sandbox.sciencecloud.nasa.gov/
 
 Authenticate using the configured NASA authentication method.
 
-After logging in, the LiteLLM AI Gateway provides several useful sections:
+After logging in, the LiteLLM SI Gateway provides several useful sections:
 
 * **Virtual Keys** — create and manage API keys
 * **Playground** — interact with deployed models

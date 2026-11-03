@@ -1,4 +1,4 @@
-# Claude Code advanced usage with NMC AI Hub
+# Claude Code advanced usage with NMC SI Hub
 
 Complete [installation, key loading, NASA gateway configuration, and a first session in the centralized guide](nmc_si_hub.md). This supplement covers Claude model selection, credential options, permission modes, and troubleshooting for local workstations and ADAPT/Discover.
 
@@ -12,7 +12,7 @@ The original site configuration put `ANTHROPIC_AUTH_TOKEN` in the JSON `env` blo
 
 ## Model selection
 
-`"model": "sonnet"` selects the configured `claude-sonnet-5-thinking` alias by default. The model aliases are supplied by NASA Mission AI Hub, not inferred from public Anthropic naming conventions. In Claude Code, use `/model` to switch models interactively, or start with `claude --model opus` or `claude --model haiku` when supported by your installed version.
+`"model": "sonnet"` selects the configured `claude-sonnet-5-thinking` alias by default. The model aliases are supplied by NASA Mission SI Hub, not inferred from public Anthropic naming conventions. In Claude Code, use `/model` to switch models interactively, or start with `claude --model opus` or `claude --model haiku` when supported by your installed version.
 
 ## Permission modes
 
@@ -34,7 +34,7 @@ Claude Code can modify files without asking about each edit, while potentially r
 claude --permission-mode acceptEdits
 ```
 
-This is a practical default when using the AI Hub gateway and working interactively.
+This is a practical default when using the SI Hub gateway and working interactively.
 
 ### Autonomous With Safety Review (if supported)
 
@@ -88,9 +88,9 @@ claude --permission-mode acceptEdits --continue
 
 **Authentication errors or an unexpected Anthropic login prompt:** Check the effective `ANTHROPIC_BASE_URL` and `model` / `ANTHROPIC_DEFAULT_*_MODEL` aliases in your settings, confirm `ANTHROPIC_AUTH_TOKEN` is loaded in the launching shell, and unset a conflicting `ANTHROPIC_API_KEY`. Check local authentication policy before changing sign-in settings.
 
-**`model not found` or unsupported request:** The proxy may not expose the selected alias through the Anthropic Messages API. Verify the exact Mission AI Hub alias and your token’s access to it.
+**`model not found` or unsupported request:** The proxy may not expose the selected alias through the Anthropic Messages API. Verify the exact Mission SI Hub alias and your token’s access to it.
 
-**Requests work for chat but fail during coding:** Claude Code requires tool-use support, streaming and other Anthropic Messages compatibility features. Ask the NASA AI Hub team to verify support for `/v1/messages` for your selected model alias.
+**Requests work for chat but fail during coding:** Claude Code requires tool-use support, streaming and other Anthropic Messages compatibility features. Ask the NASA SI Hub team to verify support for `/v1/messages` for your selected model alias.
 
 **Automatic mode unavailable:** Fall back to `acceptEdits`; do not automatically substitute `--dangerously-skip-permissions`.
 

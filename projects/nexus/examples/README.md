@@ -1,4 +1,4 @@
-# IMVI examples
+# Nexus examples
 
 ## Implemented examples
 
@@ -6,24 +6,24 @@
 
 ## Contribution guidance
 
-The contribution examples below describe where information belongs; they do not assert facts about IMVI.
+The contribution examples below describe where information belongs; they do not assert facts about Nexus.
 
 ## Add a dataset note
 
 Copy the [dataset template](../../../knowledge/templates/dataset-entry.md) to:
 
 ```text
-projects/imvi/knowledge/datasets/<dataset-name>.md
+projects/nexus/knowledge/datasets/<dataset-name>.md
 ```
 
-Document how IMVI uses the dataset, where approved users obtain it, its important fields, and known limitations. Do not commit protected data.
+Document how Nexus uses the dataset, where approved users obtain it, its important fields, and known limitations. Do not commit protected data.
 
 ## Add a model entry
 
 Copy the [model template](../../../knowledge/templates/model-entry.md) to:
 
 ```text
-projects/imvi/knowledge/models/<model-name>.md
+projects/nexus/knowledge/models/<model-name>.md
 ```
 
 Describe how to configure, run, diagnose, and validate the model. If multiple projects use it, promote the entry to `knowledge/models/`.
@@ -33,7 +33,7 @@ Describe how to configure, run, diagnose, and validate the model. If multiple pr
 For a recurring issue, add:
 
 ```text
-projects/imvi/knowledge/troubleshooting/<short-problem-name>.md
+projects/nexus/knowledge/troubleshooting/<short-problem-name>.md
 ```
 
 Include symptoms, confirmed causes, safe diagnostic commands, resolution steps, and the environment in which the resolution was verified.

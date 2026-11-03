@@ -1,8 +1,8 @@
-# IMVI
+# Nexus
 
-This directory is the contribution workspace for IMVI. It provides a place to capture project knowledge and examples before deciding whether the material should become a shared repository resource.
+This directory is the contribution workspace for Nexus. It provides a place to capture project knowledge and examples before deciding whether the material should become a shared repository resource.
 
-The repository does not yet define IMVI's authoritative scope, model inventory, or technical architecture. Project maintainers should replace this introductory text with reviewed project information.
+The repository does not yet define Nexus's authoritative scope, model inventory, or technical architecture. Project maintainers should replace this introductory text with reviewed project information.
 
 ## Existing technical material
 
@@ -14,7 +14,7 @@ The repository does not yet define IMVI's authoritative scope, model inventory, 
 `rocke3d_jax/` was removed with the project author's authorization, relayed
 by the user on 2026-11-02. The [removal record](rocke3d-jax-removal.md)
 documents scope and historical sources. Scientific ownership and historical
-claims remain subject to the [IMVI blocker register](../../docs/blocker-register.md#imvi-001).
+claims remain subject to the [Nexus blocker register](../../docs/blocker-register.md#imvi-001).
 
 ## Where to contribute
 
@@ -26,8 +26,8 @@ Create these locations only when adding content that needs them; they are contri
 - `knowledge/sensors/`: sensor characteristics and project-specific usage
 - `knowledge/algorithms/`: algorithms, assumptions, and implementation notes
 - `knowledge/troubleshooting/`: failures, diagnosis, and recovery guidance
-- `skills/`: repeatable behavior unique to IMVI
-- `agents/`: IMVI-specific agent configurations
+- `skills/`: repeatable behavior unique to Nexus
+- `agents/`: Nexus-specific agent configurations
 - `prompts/`: project-local prompt fragments
 - `examples/`: safe, reproducible examples
 - `evals/`: project acceptance cases and expected outcomes
