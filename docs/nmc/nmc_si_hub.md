@@ -86,10 +86,6 @@ claude --version
 
 Each should print a version number. Then continue to step 4.
 
-#### Note for ADAPT Grace node usage
-
-Grace nodes use a different processor (arm64) from the login nodes. To run there, close your Codex/Claude sessions and rerun the installer **on the Grace node** (substeps **a** and **b**), then check the versions there. Your settings and history are kept. Rerun on a login node to switch back; this installation uses one processor type at a time.
-
 ### Local Windows
 
 1. Open **PowerShell** from the Start menu.
@@ -336,6 +332,5 @@ The first time you open a project, the tool may ask whether you trust the folder
 
 - **Command not found:** Open a new terminal after installing (a Bash terminal on ADAPT/Discover). If the command is still missing on ADAPT/Discover, check the installer output for errors; it should report adding command setup to `~/.bashrc` or finding it already there.
 - **Permission errors:** Check that your storage has free space and allows you to run programs. Ask site support if you are unsure.
-- **Exec format error on an ADAPT Grace node:** Rerun the installer on that node as described in step 3. On other nodes, ask site support to check whether the installed program matches the processor.
 - **Key or model errors:** Repeat key loading in step 4 and check the tool settings in step 5, then ask the Mission SI Hub team to confirm your model access. The client supplements cover additional troubleshooting.
 - **Updates:** Close sessions using that installation across all nodes first. On ADAPT/Discover, rerun `install-nmc-clients.sh` with the same client flags. On local computers, rerun the Codex installation command or use `claude update` for Claude. Claude native installs auto-update by default. Follow [Anthropic's network-storage guidance](https://code.claude.com/docs/en/setup#install-on-network-storage) before concurrent use across nodes, so updates preserve executables still in use elsewhere.
