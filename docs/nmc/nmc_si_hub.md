@@ -155,16 +155,19 @@ Your virtual key is like a password: it lets the tools use your Mission SI Hub a
 
 1. Find the virtual key you saved in step 2. Keep it out of shared notes, screenshots, and code.
 
-2. In the terminal where you will run Codex or Claude Code, copy and run the block for your system.
+2. In the terminal where you will run Codex or Claude Code, copy and paste the entire block for your system, then press Enter. The commands are grouped so the whole block is read before you are prompted for the key.
 
    **ADAPT/Discover or macOS:**
 
    ```bash
-   printf 'Mission SI Hub virtual key: '
-   read -r -s NASA_LITELLM_API_KEY
-   printf '\n'
-   export NASA_LITELLM_API_KEY
-   export ANTHROPIC_AUTH_TOKEN="$NASA_LITELLM_API_KEY"
+   NASA_LITELLM_API_KEY="$(
+       printf 'Mission SI Hub virtual key: ' >&2 &&
+       IFS= read -r -s nmcVirtualKey &&
+       printf '\n' >&2 &&
+       printf '%s' "$nmcVirtualKey"
+   )" &&
+   export NASA_LITELLM_API_KEY &&
+   export ANTHROPIC_AUTH_TOKEN="$NASA_LITELLM_API_KEY" &&
    unset ANTHROPIC_API_KEY
    ```
 
@@ -173,11 +176,13 @@ Your virtual key is like a password: it lets the tools use your Mission SI Hub a
    **Windows PowerShell:**
 
    ```powershell
-   $nmcCredential = Get-Credential -UserName 'Mission SI Hub' -Message 'Paste your virtual key in the password field'
-   $env:NASA_LITELLM_API_KEY = $nmcCredential.GetNetworkCredential().Password
-   $env:ANTHROPIC_AUTH_TOKEN = $env:NASA_LITELLM_API_KEY
-   Remove-Item Env:ANTHROPIC_API_KEY -ErrorAction SilentlyContinue
-   Remove-Variable nmcCredential
+   & {
+       $nmcCredential = Get-Credential -UserName 'Mission SI Hub' -Message 'Paste your virtual key in the password field'
+       $env:NASA_LITELLM_API_KEY = $nmcCredential.GetNetworkCredential().Password
+       $env:ANTHROPIC_AUTH_TOKEN = $env:NASA_LITELLM_API_KEY
+       Remove-Item Env:ANTHROPIC_API_KEY -ErrorAction SilentlyContinue
+       Remove-Variable nmcCredential
+   }
    ```
 
    Paste the key in the **password** field and confirm.
@@ -202,6 +207,8 @@ Your virtual key is like a password: it lets the tools use your Mission SI Hub a
 
 This one-time setup tells agents to send requests through Mission SI Hub. Complete the subsection for each tool you installed (Claude/Codex), on each computer or system where you use it. The same virtual key can serve both tools when your Hub team grants access to their models.
 
+Copy and paste the entire command block for your system, then press Enter. The commands are grouped so the whole block is read before the editor opens.
+
 If a settings file already has content, keep it and merge the settings below. Ask for help on the [Mission SI Hub Teams Channel](https://teams.microsoft.com/l/channel/19%3A6b44e9140031485790c07a9e6f65daaf%40thread.tacv2/Mission%20AI%20Hub?groupId=276ce13e-67d6-4fd0-82c9-9638d30b19ac&tenantId=7005d458-45be-48ae-8140-d43da96dd17b) if you are unsure how to combine them.
 
 ### Configure Codex CLI
@@ -211,28 +218,34 @@ If a settings file already has content, keep it and merge the settings below. As
    **ADAPT/Discover:**
 
    ```bash
-   touch ~/.codex/config.toml
-   nano ~/.codex/config.toml
+   (
+       touch ~/.codex/config.toml &&
+       vi ~/.codex/config.toml
+   )
    ```
 
    **macOS:**
 
    ```bash
-   mkdir -p ~/.codex
-   touch ~/.codex/config.toml
-   nano ~/.codex/config.toml
+   (
+       mkdir -p ~/.codex &&
+       touch ~/.codex/config.toml &&
+       vi ~/.codex/config.toml
+   )
    ```
 
-   These examples use the Nano text editor. If Nano is unavailable, open the same file in your usual editor, such as VS Code.
+   These examples use the vi text editor. Press **i** to enter insert mode before typing or pasting settings. If vi is unavailable, open the same file in your usual editor, such as VS Code.
 
    **Windows PowerShell:**
 
    ```powershell
-   New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex" | Out-Null
-   if (-not (Test-Path -LiteralPath "$env:USERPROFILE\.codex\config.toml")) {
-       New-Item -ItemType File -Path "$env:USERPROFILE\.codex\config.toml" | Out-Null
+   & {
+       New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex" | Out-Null
+       if (-not (Test-Path -LiteralPath "$env:USERPROFILE\.codex\config.toml")) {
+           New-Item -ItemType File -Path "$env:USERPROFILE\.codex\config.toml" | Out-Null
+       }
+       notepad "$env:USERPROFILE\.codex\config.toml"
    }
-   notepad "$env:USERPROFILE\.codex\config.toml"
    ```
 
    The PowerShell commands create the file only if it is missing, then open it in Notepad.
@@ -250,7 +263,7 @@ If a settings file already has content, keep it and merge the settings below. As
    wire_api = "responses"
    ```
 
-3. Save and close the file. In Nano, press **Ctrl+O**, then **Enter** to save, and **Ctrl+X** to exit. In Notepad, choose **File → Save**, then close the window. Keep the filename `config.toml`, without a `.txt` extension.
+3. Save and close the file. In vi, press **Esc**, type `:wq`, then press **Enter** to save and exit. In Notepad, choose **File → Save**, then close the window. Keep the filename `config.toml`, without a `.txt` extension.
 
 4. Continue to step 6 to try a request. Codex will read the key you loaded in step 4; do not paste the key into this settings file. This NASA configuration does not require a separate ChatGPT login.
 
@@ -261,29 +274,35 @@ If a settings file already has content, keep it and merge the settings below. As
    **ADAPT/Discover:**
 
    ```bash
-   touch ~/.claude/settings.json
-   nano ~/.claude/settings.json
+   (
+       touch ~/.claude/settings.json &&
+       vi ~/.claude/settings.json
+   )
    ```
 
    **macOS:**
 
    ```bash
-   mkdir -p ~/.claude
-   chmod 700 ~/.claude
-   touch ~/.claude/settings.json
-   nano ~/.claude/settings.json
+   (
+       mkdir -p ~/.claude &&
+       chmod 700 ~/.claude &&
+       touch ~/.claude/settings.json &&
+       vi ~/.claude/settings.json
+   )
    ```
 
-   If Nano is unavailable, use your usual editor.
+   In vi, press **i** to enter insert mode before typing or pasting settings. If vi is unavailable, use your usual editor.
 
    **Windows PowerShell:**
 
    ```powershell
-   New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude" | Out-Null
-   if (-not (Test-Path -LiteralPath "$env:USERPROFILE\.claude\settings.json")) {
-       New-Item -ItemType File -Path "$env:USERPROFILE\.claude\settings.json" | Out-Null
+   & {
+       New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude" | Out-Null
+       if (-not (Test-Path -LiteralPath "$env:USERPROFILE\.claude\settings.json")) {
+           New-Item -ItemType File -Path "$env:USERPROFILE\.claude\settings.json" | Out-Null
+       }
+       notepad "$env:USERPROFILE\.claude\settings.json"
    }
-   notepad "$env:USERPROFILE\.claude\settings.json"
    ```
 
    The PowerShell commands create the file only if it is missing, then open it in Notepad.
@@ -318,11 +337,35 @@ In the terminal where you loaded your key, open your project folder with `cd /pa
 | Action | Codex CLI | Claude Code |
 | --- | --- | --- |
 | Interactive development | `codex -a on-request -s workspace-write` | `claude --permission-mode acceptEdits` |
+| Autonomous/sandboxed | `codex -a never -s workspace-write` | Use the multiline command below (macOS/Linux/WSL2) |
 | Review/planning | `codex -a on-request -s read-only` | `claude --permission-mode plan` |
 | Resume latest | `codex resume --last` | `claude --continue` |
 | Choose a prior session | `codex resume` | `claude --resume` |
 
+**The autonomous/sandboxed** option is recommended; it allows the agent to perform tasks without asking for approval every time, but it can only edit within the current working directory and its subfolders.
+
 The first time you open a project, the tool may ask whether you trust the folder. Confirm if it is your project or another folder you trust.
+
+**Autonomous Claude with shell sandboxing:** From your project folder, paste this entire block and press Enter:
+
+```bash
+claude --permission-mode dontAsk \
+    --allowedTools 'Edit(/**)' \
+    --settings '{
+        "sandbox": {
+            "enabled": true,
+            "autoAllowBashIfSandboxed": true,
+            "allowUnsandboxedCommands": false,
+            "failIfUnavailable": true
+        }
+    }'
+```
+
+`dontAsk` denies actions that would need approval. The [Edit permission rule](https://code.claude.com/docs/en/permissions#read-and-edit) allows file edits and creation within the starting project directory, subject to existing deny rules and protected paths. Sandboxed shell commands are approved automatically; unsandboxed retries are disabled, and Claude refuses to start if sandbox support is unavailable. These settings apply to this session. See the [CLI reference](https://code.claude.com/docs/en/cli-reference) and [sandbox settings](https://code.claude.com/docs/en/settings-reference#sandbox).
+
+The sandbox supports macOS, Linux, and WSL2; native Windows PowerShell is unsupported. Linux/WSL2 requires `bubblewrap` and `socat`, plus host support; ADAPT/Discover availability has not been tested. Run `/sandbox` to inspect the effective configuration. The sandbox covers shell commands; file tools, hooks, and MCP servers run outside it. Existing user or managed sandbox exclusions and additional write paths still apply. Network hosts outside the configured allowlist are denied in `dontAsk` mode. See [sandbox scope and setup](https://code.claude.com/docs/en/sandboxing).
+
+Client syntax and settings were checked against Anthropic's documentation on 2026-11-04; this command has not been tested against NASA Mission SI Hub.
 
 **For your first request, try:** `Summarize this repository's purpose from its README without changing any files.`A successful reply should describe the project from its README. If you see a key or model error instead, check steps 4 and 5, then ask the Mission SI Hub team to confirm your access. If you would like more specific options for claude or codex, see their docs: [claude](claude_code_nmc_si_hub.md), [codex](codex_nmc_si_hub.md).
 
