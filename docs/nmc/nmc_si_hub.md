@@ -9,9 +9,9 @@ Codex CLI and Claude Code are assistants you use from a terminal to explain code
 
 1. Go to [NASA Access Management System (NAMS)](https://nams.nasa.gov/).
 
-2. Under **New request**, in the middle of the screen, enter **Mission SI Hub** and press Enter.
+2. Under **New request**, in the middle of the screen, enter **272304** (the ID of the Mission SI Hub NAMS option).
 
-3. Select the option with ID **272304**; this should be the first result.
+3. Select the option with ID **272304**; this should be the third result, with the name "Mission AI Hub".
 
 4. Scroll to **account type**, and select one of the options below.
 
@@ -71,17 +71,13 @@ Choose the section for the computer where you will run Codex or Claude Code.
 
    `$NOBACKUP` is already configured for your user account; you do not need to set it. The script places the programs, settings, and session history there to save home-directory space. Links in your home directory let the tools find those files. Small launchers stay in `~/.local/bin`; some other caches may still use home storage. Do not use `sudo`.
 
-4. Run this line so the terminal can find the installed tools. Also add it once to your `~/.bashrc` file so future terminals can find them:
-
-   ```bash
-   export PATH="$HOME/.local/bin:$PATH"
-   ```
+   The installer also updates `~/.bashrc` so future Bash terminals can find the tools. You do not need to add an `export PATH` command yourself.
 
 **Existing installations:** The script can update installations it created. If it finds an existing directory or launcher it does not manage, it stops and identifies the path. Close any running sessions and ask site support to help preserve your settings and history before migrating it. Back up those files according to site policy; `$NOBACKUP` is not backed-up storage.
 
 #### b. Check the version
 
-Run the command for each tool you installed:
+Open a new Bash terminal so it picks up the installer's changes, then run the command for each tool you installed:
 
 ```bash
 codex --version
@@ -216,10 +212,18 @@ If a settings file already has content, keep it and merge the settings below. As
 
 1. Open Codex's settings file, `config.toml`:
 
-   **ADAPT/Discover or macOS:**
+   **ADAPT/Discover:**
+
+   ```bash
+   touch ~/.codex/config.toml
+   nano ~/.codex/config.toml
+   ```
+
+   **macOS:**
 
    ```bash
    mkdir -p ~/.codex
+   touch ~/.codex/config.toml
    nano ~/.codex/config.toml
    ```
 
@@ -229,10 +233,13 @@ If a settings file already has content, keep it and merge the settings below. As
 
    ```powershell
    New-Item -ItemType Directory -Force "$env:USERPROFILE\.codex" | Out-Null
+   if (-not (Test-Path -LiteralPath "$env:USERPROFILE\.codex\config.toml")) {
+       New-Item -ItemType File -Path "$env:USERPROFILE\.codex\config.toml" | Out-Null
+   }
    notepad "$env:USERPROFILE\.codex\config.toml"
    ```
 
-   If Notepad asks whether to create the file, choose **Yes**.
+   The PowerShell commands create the file only if it is missing, then open it in Notepad.
 
 2. Copy these settings into the file. They select NASA's service and the model named in the existing site configuration:
 
@@ -255,11 +262,19 @@ If a settings file already has content, keep it and merge the settings below. As
 
 1. Open Claude Code's settings file, `settings.json`:
 
-   **ADAPT/Discover or macOS:**
+   **ADAPT/Discover:**
+
+   ```bash
+   touch ~/.claude/settings.json
+   nano ~/.claude/settings.json
+   ```
+
+   **macOS:**
 
    ```bash
    mkdir -p ~/.claude
    chmod 700 ~/.claude
+   touch ~/.claude/settings.json
    nano ~/.claude/settings.json
    ```
 
@@ -269,10 +284,13 @@ If a settings file already has content, keep it and merge the settings below. As
 
    ```powershell
    New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude" | Out-Null
+   if (-not (Test-Path -LiteralPath "$env:USERPROFILE\.claude\settings.json")) {
+       New-Item -ItemType File -Path "$env:USERPROFILE\.claude\settings.json" | Out-Null
+   }
    notepad "$env:USERPROFILE\.claude\settings.json"
    ```
 
-   If Notepad asks whether to create the file, choose **Yes**.
+   The PowerShell commands create the file only if it is missing, then open it in Notepad.
 
 2. Copy these settings into the file. Keep the quotation marks, braces, and commas as shown:
 
@@ -316,7 +334,7 @@ The first time you open a project, the tool may ask whether you trust the folder
 
 ## Troubleshooting and updates
 
-- **Command not found:** On ADAPT/Discover, repeat the `export PATH=...` command in step 3. On a local computer, close and reopen your terminal after installing.
+- **Command not found:** Open a new terminal after installing (a Bash terminal on ADAPT/Discover). If the command is still missing on ADAPT/Discover, check the installer output for errors; it should report adding command setup to `~/.bashrc` or finding it already there.
 - **Permission errors:** Check that your storage has free space and allows you to run programs. Ask site support if you are unsure.
 - **Exec format error on an ADAPT Grace node:** Rerun the installer on that node as described in step 3. On other nodes, ask site support to check whether the installed program matches the processor.
 - **Key or model errors:** Repeat key loading in step 4 and check the tool settings in step 5, then ask the Mission SI Hub team to confirm your model access. The client supplements cover additional troubleshooting.

@@ -13,6 +13,7 @@ Usage: bash install-nmc-clients.sh [--codex] [--claude]
 
 No flags installs both. Run on an ADAPT/Discover login node first.
 NOBACKUP must already point to your personal storage. Do not use sudo.
+Adds ~/.local/bin to PATH in ~/.bashrc for future Bash terminals.
 Close client sessions on all nodes before rerunning or changing architecture.
 EOF
 }
@@ -117,7 +118,10 @@ trap 'rm -f "$nmc_installer"' EXIT
 trap 'exit 130' INT
 trap 'exit 143' TERM
 mkdir -p "$nmc_bin"
-export PATH="$nmc_bin:$PATH"
+case ":$PATH:" in
+    *":$nmc_bin:"*) ;;
+    *) export PATH="$nmc_bin:$PATH" ;;
+esac
 echo "Using your NOBACKUP storage: $nmc_root"
 echo "Processor: $nmc_arch. Close sessions on other nodes before updating."
 
@@ -147,5 +151,21 @@ if $nmc_claude; then
     echo "[Claude] Installation complete."
 fi
 
-echo 'Finished. In your terminal, run: export PATH="$HOME/.local/bin:$PATH"'
-echo 'Then follow steps 4 and 5 in the setup guide to connect to Mission AI Hub.'
+echo '[PATH] Setting up commands for future Bash terminals...'
+nmc_path_marker='# NMC clients: commands in ~/.local/bin'
+if ! grep -Fqx -- "$nmc_path_marker" "$HOME/.bashrc" 2>/dev/null; then
+    cat >> "$HOME/.bashrc" <<'EOF'
+
+# NMC clients: commands in ~/.local/bin
+case ":$PATH:" in
+    *":$HOME/.local/bin:"*) ;;
+    *) export PATH="$HOME/.local/bin:$PATH" ;;
+esac
+EOF
+    echo '[PATH] Added command setup to ~/.bashrc.'
+else
+    echo '[PATH] Command setup is already in ~/.bashrc.'
+fi
+
+echo 'Finished. Open a new Bash terminal, then check the installed versions.'
+echo 'Follow steps 4 and 5 in the setup guide to connect to Mission AI Hub.'
