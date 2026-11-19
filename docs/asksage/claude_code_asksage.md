@@ -132,8 +132,7 @@ To use different Claude models:
 
 3. Update the model IDs in `settings.json` above
 
-For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/).
-
+For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/), and the [List of Claude AskSage NASA models](https://api.asksage.ai.nasa.gov/server/anthropic/v1/models).
 ## 5. Start Claude Code and verify
 
 ### Launch Claude Code

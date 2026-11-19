@@ -20,9 +20,53 @@ In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 27
 4. Save the key securely
 5. Note the **API base URL** shown in Settings (do not use the dashboard URL)
 
-## 3. Configure Codex settings
+## 3. Load the key into your terminal
 
-**Note**: as of 11/19/2026, Codex does not support loading of environment variables from the terminal; rather, it requires the API key to be placed directly in the config.toml file.
+Choose the commands for your shell and use that same terminal to launch Codex in step 5. On Windows, open PowerShell directly; WSL users should follow the macOS/Linux commands inside WSL.
+
+### macOS/Linux/WSL — Bash or Zsh
+
+1. Run this command to securely enter your API key. It works in both Bash and macOS's default Zsh:
+
+```bash
+printf 'Ask Sage API key: '; IFS= read -r -s ASKSAGE_API_KEY; printf '\n'
+```
+
+2. Paste your saved API key and press Enter (the key will not be visible as you type).
+
+3. Run these commands:
+
+```bash
+export ASKSAGE_API_KEY
+test -n "$ASKSAGE_API_KEY" && printf 'Key loaded.\n'
+```
+
+### Windows — PowerShell
+
+1. Run this command to securely enter your API key:
+
+```powershell
+$askSageKey = Read-Host 'Ask Sage API key' -AsSecureString
+```
+
+2. Paste your saved API key and press Enter (PowerShell masks the input).
+
+3. Run these commands to make the key available to Codex in this terminal session:
+
+```powershell
+$env:ASKSAGE_API_KEY = [System.Net.NetworkCredential]::new('', $askSageKey).Password
+$askSageKey.Dispose()
+Remove-Variable askSageKey
+if ($env:ASKSAGE_API_KEY) { Write-Output 'Key loaded.' }
+```
+
+Confirm you see `Key loaded.` before continuing. If it does not appear, repeat the key-entry steps for your shell.
+
+**Important**: Repeat these steps in each new terminal session. The key is passed to Codex through the `ASKSAGE_API_KEY` environment variable; an export does not persist across terminal sessions or reboots. Never commit the key to version control.
+
+## 4. Configure Codex settings
+
+Codex reads the exported `ASKSAGE_API_KEY` through the `env_http_headers` setting below and sends its value as the `x-access-tokens` header. See the [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference).
 
 ### Open the settings file
 
@@ -53,7 +97,7 @@ In Vi/Vim, press `i` to enter insert mode. In Notepad, edit the text directly.
 - **If the file is empty**: Paste the complete configuration below.
 - **If the file has existing content**: Update the matching settings and tables below, preserving unrelated settings. Place top-level settings before any table headings; merge existing tables rather than duplicating them.
 
-**Note**: you must edit the `experimental_bearer_token` entry to have your actual API key.
+Keep `"ASKSAGE_API_KEY"` as the environment variable's name in `env_http_headers`, without a `$` prefix. The actual key is entered in step 3; do not paste it into this configuration.
 
 ```toml
 model = "gpt-5.4"
@@ -63,7 +107,7 @@ web_search = "disabled"
 [model_providers.proxy]
 name = "NASA Chat"
 base_url = "https://api.asksage.ai.nasa.gov/server/openai/v1"
-experimental_bearer_token ="YOUR_TOKEN_HERE"
+env_http_headers = { "x-access-tokens" = "ASKSAGE_API_KEY" }
 wire_api = "responses"
 ```
 
@@ -86,25 +130,27 @@ To use a different model:
 
 3. Update `model` in `config.toml` above
 
-For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/).
+For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/), and the [List of Codex AskSage NASA models](https://api.asksage.ai.nasa.gov/server/openai/v1/models)
 
 #### Note for ITAR use
 
 Please note that only the "gov" versions of models are approved for ITAR use. To specify one of those models, they should have the keyword "gov" appended, like so: "gpt-5.6-sol-gov". See [NASA Chat](https://chat.asksage.ai.nasa.gov/) models section for a list of gov models (you can search for "gov" in the top right of the models interface).
 
-## 4. Start Codex and verify
+## 5. Start Codex and verify
 
 ### Launch Codex
 
 Navigate to your project directory in the same terminal where you loaded the key. This command works in both Bash/Zsh and PowerShell:
 
 ```text
-codex
+codex --no-daemon
 ```
+
+`--no-daemon` bypasses Codex's shared background server so this session can inherit the key from the current terminal. This avoids reusing a server that may have started before the key was exported; a computer reboot is unnecessary. See the [Codex CLI reference](https://learn.chatgpt.com/docs/developer-commands?surface=cli).
 
 ### Verify the configuration
 
-1. Run the `/status` command and confirm the selected model is `gpt-5.6-sol`. Check that `model_provider` is `asksage` and the NASA API URL is correct in `config.toml`. To confirm the key is loaded without displaying it, use the `Key loaded.` check for your shell in step 3 before launching Codex.
+1. Run the `/status` command and confirm the selected model is `gpt-5.4` (or the model you chose). Check that `model_provider` is `proxy` and the NASA API URL is correct in `config.toml`. To confirm the key is loaded without displaying it, use the `Key loaded.` check for your shell in step 3 before launching Codex.
 
 2. Test with a simple prompt:
    ```
