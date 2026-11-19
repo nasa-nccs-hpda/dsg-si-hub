@@ -37,6 +37,11 @@ If you are using Codex or Claude Code for the first time, or are just looking to
 - [NASA Mantle Local LLM Resources](docs/mantle/NASA-Mantle-LLM-Resources.md)
 - [NASA Mantle access from Jupyter Notebook Intelligence](docs/mantle/NASA-Mantle-Jupyter-Notebook-Intelligence.md)
 
+### Ask Sage
+
+- [Create an Ask Sage API key and configure Codex CLI](docs/asksage/codex_asksage.md)
+- [Create an Ask Sage API key and configure Claude Code](docs/asksage/claude_code_asksage.md)
+
 ### Tips and tricks
 
 - [SI Usage Optimization Guide](docs/tips-and-tricks/TokenSavingStrategies.md)
