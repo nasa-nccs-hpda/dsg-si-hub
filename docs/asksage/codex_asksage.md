@@ -20,51 +20,9 @@ In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 27
 4. Save the key securely
 5. Note the **API base URL** shown in Settings (do not use the dashboard URL)
 
-## 3. Load the key into your terminal
+## 3. Configure Codex settings
 
-Choose the commands for your shell and use that same terminal to launch Codex in step 5. On Windows, open PowerShell directly; WSL users should follow the macOS/Linux commands inside WSL.
-
-### macOS/Linux/WSL — Bash or Zsh
-
-1. Run this command to securely enter your API key. It works in both Bash and macOS's default Zsh:
-
-```bash
-printf 'Ask Sage API key: '; IFS= read -r -s ASKSAGE_API_KEY; printf '\n'
-```
-
-2. Paste your saved API key and press Enter (the key will not be visible as you type).
-
-3. Run these commands:
-
-```bash
-export ASKSAGE_API_KEY
-test -n "$ASKSAGE_API_KEY" && printf 'Key loaded.\n'
-```
-
-### Windows — PowerShell
-
-1. Run this command to securely enter your API key:
-
-```powershell
-$askSageKey = Read-Host 'Ask Sage API key' -AsSecureString
-```
-
-2. Paste your saved API key and press Enter (PowerShell masks the input).
-
-3. Run these commands to make the key available to Codex in this terminal session:
-
-```powershell
-$env:ASKSAGE_API_KEY = [System.Net.NetworkCredential]::new('', $askSageKey).Password
-$askSageKey.Dispose()
-Remove-Variable askSageKey
-if ($env:ASKSAGE_API_KEY) { Write-Output 'Key loaded.' }
-```
-
-Confirm you see `Key loaded.` before continuing. If it does not appear, repeat the key-entry steps for your shell.
-
-**Important**: Repeat these steps in each new terminal session. The key is passed to Codex through an environment variable; never commit it to version control.
-
-## 4. Configure Codex settings
+**Note**: as of 11/19/2026, Codex does not support loading of environment variables from the terminal; rather, it requires the API key to be placed directly in the config.toml file.
 
 ### Open the settings file
 
@@ -95,25 +53,18 @@ In Vi/Vim, press `i` to enter insert mode. In Notepad, edit the text directly.
 - **If the file is empty**: Paste the complete configuration below.
 - **If the file has existing content**: Update the matching settings and tables below, preserving unrelated settings. Place top-level settings before any table headings; merge existing tables rather than duplicating them.
 
+**Note**: you must edit the `experimental_bearer_token` entry to have your actual API key.
+
 ```toml
-model = "gpt-5.6-sol"
-model_provider = "asksage"
-check_for_update_on_startup = false
+model = "gpt-5.4"
+model_reasoning_effort = "high"
+model_provider = "proxy"
 web_search = "disabled"
-
-[model_providers.asksage]
-name = "Ask Sage"
+[model_providers.proxy]
+name = "NASA Chat"
 base_url = "https://api.asksage.ai.nasa.gov/server/openai/v1"
+experimental_bearer_token ="YOUR_TOKEN_HERE"
 wire_api = "responses"
-env_key = "ASKSAGE_API_KEY"
-requires_openai_auth = false
-supports_websockets = false
-
-[analytics]
-enabled = false
-
-[feedback]
-enabled = false
 ```
 
 Use the NASA API host noted in step 2 with the `/server/openai/v1` path. This adapts the environment-variable setup in the [Ask Sage Codex guide](https://docs.asksage.ai/integrations/codex/); NASA connectivity remains unverified. Keep the provider settings in your user configuration file.
@@ -131,7 +82,7 @@ To use a different model:
    - Click your name (bottom-right) → **Models**
    - Find the OpenAI model you want to use
 
-2. Copy its exact API model ID; availability depends on your instance and account. The requested default is `gpt-5.6-sol`.
+2. Copy its exact API model ID; availability depends on your instance and account. The requested default is `gpt-5.4`.
 
 3. Update `model` in `config.toml` above
 
@@ -141,7 +92,7 @@ For additional API authentication and endpoint details, see the [Ask Sage API en
 
 Please note that only the "gov" versions of models are approved for ITAR use. To specify one of those models, they should have the keyword "gov" appended, like so: "gpt-5.6-sol-gov". See [NASA Chat](https://chat.asksage.ai.nasa.gov/) models section for a list of gov models (you can search for "gov" in the top right of the models interface).
 
-## 5. Start Codex and verify
+## 4. Start Codex and verify
 
 ### Launch Codex
 
