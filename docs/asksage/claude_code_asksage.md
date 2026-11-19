@@ -40,12 +40,12 @@ mkdir -p "${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 vi "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json"
 ```
 
-Merge the following into existing JSON, preserving unrelated settings. Replace the host and model placeholders before saving:
+Merge the following into existing JSON, preserving unrelated settings. Replace the model placeholders before saving:
 
 ```json
 {
   "env": {
-    "ANTHROPIC_BASE_URL": "https://REPLACE_WITH_APPROVED_API_HOST/server/anthropic",
+    "ANTHROPIC_BASE_URL": "https://api.asksage.ai.nasa.gov/server/anthropic",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "ANTHROPIC_DEFAULT_SONNET_MODEL": "REPLACE_WITH_APPROVED_SONNET_ID",
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "REPLACE_WITH_APPROVED_OPUS_ID",
@@ -55,7 +55,7 @@ Merge the following into existing JSON, preserving unrelated settings. Replace t
 }
 ```
 
-Use the API host from Settings and keep `/server/anthropic`. Ask your administrator for the supported Anthropic-compatible model IDs.
+For Claude Code, use `/server/anthropic` without a trailing `/v1`. Ask your administrator for the supported Anthropic-compatible model IDs.
 
 For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/).
 
@@ -77,4 +77,4 @@ NASA Chat starts at **500,000 tokens/month** and adds **500,000 at 90% usage**, 
 - [Ask Sage API keys](https://docs.asksage.ai/api-documentation/)
 - [Claude Code gateway configuration](https://code.claude.com/docs/en/llm-gateway-connect)
 
-NASA access details and token policy: contributor-supplied, 2026-11-19. NASA guide, request workflow, and API host not independently verified.
+NASA access details, API host, and token policy: contributor-supplied, 2026-11-19. API host taken from the supplied OpenCode configuration; live connectivity, NASA guide, and request workflow not independently verified.

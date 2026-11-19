@@ -42,6 +42,10 @@ If you are using Codex or Claude Code for the first time, or are just looking to
 - [Create an Ask Sage API key and configure Codex CLI](docs/asksage/codex_asksage.md)
 - [Create an Ask Sage API key and configure Claude Code](docs/asksage/claude_code_asksage.md)
 
+### MCP servers
+
+- [Create a mission MCP repository and use it with Codex or Claude Code](docs/mcp/mcp_server_setup.md)
+
 ### Tips and tricks
 
 - [SI Usage Optimization Guide](docs/tips-and-tricks/TokenSavingStrategies.md)

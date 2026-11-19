@@ -38,7 +38,7 @@ mkdir -p "${CODEX_HOME:-$HOME/.codex}"
 vi "${CODEX_HOME:-$HOME/.codex}/config.toml"
 ```
 
-Merge these settings, replacing the host and model placeholders with values for your NASA account. Keep `model` and `model_provider` above any `[table]` headers; preserve unrelated settings.
+Merge these settings, replacing the model placeholder with a model available to your NASA account. Keep `model` and `model_provider` above any `[table]` headers; preserve unrelated settings.
 
 ```toml
 model = "REPLACE_WITH_APPROVED_CODEX_MODEL_ID"
@@ -46,14 +46,14 @@ model_provider = "asksage"
 
 [model_providers.asksage]
 name = "Ask Sage"
-base_url = "https://REPLACE_WITH_APPROVED_API_HOST/server/openai/v1"
+base_url = "https://api.asksage.ai.nasa.gov/server/openai/v1"
 wire_api = "responses"
 env_key = "ASKSAGE_API_KEY"
 requires_openai_auth = false
 supports_websockets = false
 ```
 
-Use the API host from Settings and keep `/server/openai/v1`. Ask your administrator for the supported Codex model ID.
+Keep `/server/openai/v1` in the NASA API URL. Ask your administrator for a model ID that supports Codex through the Responses API.
 
 For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/).
 
@@ -75,4 +75,4 @@ NASA Chat starts at **500,000 tokens/month** and adds **500,000 at 90% usage**, 
 - [Ask Sage API keys](https://docs.asksage.ai/api-documentation/)
 - [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference)
 
-NASA access details and token policy: contributor-supplied, 2026-11-19. NASA guide, request workflow, and API host not independently verified.
+NASA access details, API host, and token policy: contributor-supplied, 2026-11-19. API host taken from the supplied OpenCode configuration; live connectivity, NASA guide, and request workflow not independently verified.
