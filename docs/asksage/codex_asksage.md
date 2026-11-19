@@ -49,7 +49,7 @@ test -n "$ASKSAGE_API_KEY" && printf 'Key loaded.\n'
 $askSageKey = Read-Host 'Ask Sage API key' -AsSecureString
 ```
 
-2. Paste your saved API key and press Enter (PowerShell masks the input).
+2. Paste your saved API key and press Enter (PowerShell masks the input). **Note**: do NOT paste with `Ctrl` + `V`, this will only paste the character "V" and not your actual API key. Instead, right click and the key will paste.
 
 3. Run these commands to make the key available to Codex in this terminal session:
 

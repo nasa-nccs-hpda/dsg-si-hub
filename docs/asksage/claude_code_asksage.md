@@ -3,13 +3,45 @@
 Documentation owner: Repository maintainers. Reviewed: 2026-11-19.
 Status: Documentation-checked; live Ask Sage authentication and model execution have not been tested.
 
-For terminal use on macOS/Linux (Bash or Zsh), WSL (Bash), or Windows PowerShell (5.1 or later). [Install Claude Code](https://docs.asksage.ai/integrations/claude-code/) before starting.
+For terminal use on macOS/Linux (Bash or Zsh), WSL (Bash), or Windows PowerShell (5.1 or later).  **This will likely require you to restart your terminal before continuing.**
 
-## 1. Request access
+## 1. Install Claude Code
+
+1. Run the following command(s) based on your operating system:
+
+```
+# macOS, Linux, WSL
+curl -fsSL https://claude.ai/install.sh | bash
+
+# Windows PowerShell
+irm https://claude.ai/install.ps1 | iex
+```
+
+2. If on Windows, you may receive a warning that Claude Code is not on your PATH environment variable. To fix it, paste and run this entire multiline command in PowerShell:
+
+```powershell
+& {
+    $claudeBin = Join-Path $HOME '.local\bin'
+    $userPath = [Environment]::GetEnvironmentVariable('Path', 'User')
+
+    if ($claudeBin -notin ($userPath -split ';')) {
+        $updatedPath = (@($userPath, $claudeBin) | Where-Object { $_ }) -join ';'
+        [Environment]::SetEnvironmentVariable('Path', $updatedPath, 'User')
+    }
+
+    if ($claudeBin -notin ($env:Path -split ';')) {
+        $env:Path += ";$claudeBin"
+    }
+}
+```
+
+3. Restart your terminal.
+
+## 2. Request access
 
 In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 272250 (IT Asset, HQ)**. Once approved, continue below. Skip this step if you already have access.
 
-## 2. Create the API key
+## 3. Create the API key
 
 1. Sign in to [NASA Chat](https://chat.asksage.ai.nasa.gov/dashboard)
 2. Navigate to **your name (bottom-left corner) → Settings → API Keys**
@@ -20,7 +52,7 @@ In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 27
 4. Save the key securely
 5. Note the **API base URL** shown in Settings (do not use the dashboard URL)
 
-## 3. Load the key into your terminal
+## 4. Load the key into your terminal
 
 Choose the commands for your shell and use that same terminal to launch Claude Code in step 5. On Windows, open PowerShell directly; WSL users should follow the macOS/Linux commands inside WSL.
 
@@ -51,9 +83,9 @@ test -n "$ANTHROPIC_AUTH_TOKEN" && printf 'Key loaded.\n'
 $askSageKey = Read-Host 'Ask Sage API key' -AsSecureString
 ```
 
-2. Paste your saved API key and press Enter (PowerShell masks the input).
+2. Paste your saved API key and press Enter (PowerShell masks the input). **Note**: do NOT paste with `Ctrl` + `V`, this will only paste the character "V" and not your actual API key. Instead, right click and the key will paste.
 
-3. Run these commands to make the key available to Claude Code in this terminal session:
+3. Paste and run this entire multiline command to make the key available to Claude Code in this terminal session:
 
 ```powershell
 $env:ANTHROPIC_AUTH_TOKEN = [System.Net.NetworkCredential]::new('', $askSageKey).Password
@@ -63,11 +95,13 @@ Remove-Item Env:ANTHROPIC_API_KEY -ErrorAction SilentlyContinue
 if ($env:ANTHROPIC_AUTH_TOKEN) { Write-Output 'Key loaded.' }
 ```
 
+The `. { ... }` block runs in the current PowerShell scope so it can remove the temporary `$askSageKey` variable. Repeat the key-entry steps before running this command again.
+
 Confirm you see `Key loaded.` before continuing. If it does not appear, repeat the key-entry steps for your shell.
 
 **Important**: Repeat these steps in each new terminal session. The key is passed to Claude Code through an environment variable; never commit it to version control.
 
-## 4. Configure Claude Code settings
+## 5. Configure Claude Code settings
 
 ### Open the settings file
 
@@ -107,7 +141,8 @@ In Vi/Vim, press `i` to enter insert mode. In Notepad, edit the text directly.
     "ANTHROPIC_DEFAULT_OPUS_MODEL": "claude-opus-4-5",
     "ANTHROPIC_DEFAULT_HAIKU_MODEL": "claude-haiku-4-5"
   },
-  "model": "sonnet"
+  "model": "sonnet",
+  "autoUpdatesChannel": "latest"
 }
 ```
 
@@ -133,7 +168,8 @@ To use different Claude models:
 3. Update the model IDs in `settings.json` above
 
 For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/), and the [List of Claude AskSage NASA models](https://api.asksage.ai.nasa.gov/server/anthropic/v1/models).
-## 5. Start Claude Code and verify
+
+## 6. Start Claude Code and verify
 
 ### Launch Claude Code
 
