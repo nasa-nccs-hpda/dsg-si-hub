@@ -11,46 +11,63 @@ In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 27
 
 ## 2. Create the API key
 
-1. Sign in to [NASA Chat](https://chat.asksage.ai.nasa.gov/dashboard).
-2. Click **your name in the bottom-left corner → Settings → API Keys**.
-3. Name the key, select **Passthrough** under **Access**, and click **+ Create Key**.
-4. Save the key securely and note the API base URL shown in Settings. Do not use the dashboard URL as the API URL.
+1. Sign in to [NASA Chat](https://chat.asksage.ai.nasa.gov/dashboard)
+2. Navigate to **your name (bottom-left corner) → Settings → API Keys**
+3. Create a new key:
+   - Enter a name for the key
+   - Select **Passthrough** under **Access**
+   - Click **+ Create Key**
+4. Save the key securely
+5. Note the **API base URL** shown in Settings (do not use the dashboard URL)
 
 ## 3. Load the key into your terminal
 
-1. Open a bash terminal:
-**Windows users**: If you're using Command Prompt or PowerShell, 
-start Bash by typing `bash` (requires Git Bash, Cygwin, or similar installed)
+### Open a Bash terminal
 
-**macOS/Linux/WSL users**: Open your terminal (you're already in a Bash-compatible shell)
-2. Run this command (will ask for your API key):
+- **Windows**: Open Command Prompt or PowerShell, then type `bash` and press Enter
+  - Requires Git Bash, Cygwin, or WSL installed
+- **macOS/Linux/WSL**: Open your default terminal (already Bash-compatible)
+
+### Load your API key
+
+1. Run this command to securely enter your API key:
 
 ```bash
 read -r -s -p 'Ask Sage API key: ' ASKSAGE_API_KEY
 ```
 
-3. Paste your previously saved API key into the terminal, and hit enter.
-4. Run these commands one-by-one:
+2. Paste your saved API key and press Enter (the key will not be visible as you type)
+
+3. Run these commands one at a time:
+
 ```bash
 export ANTHROPIC_AUTH_TOKEN="$ASKSAGE_API_KEY"
 unset ASKSAGE_API_KEY
 unset ANTHROPIC_API_KEY
 test -n "$ANTHROPIC_AUTH_TOKEN" && printf 'Key loaded.\n'
 ```
-6. You should see "Key loaded." printed.
 
-Repeat this in each new terminal. Never commit the key.
+4. Confirm you see the message: `Key loaded.`
 
-## 4. Configure Claude Code
+**Important**: Repeat these steps in each new terminal session. Never commit the key to version control.
 
-1. Open the user settings by running this command in your terminal:
+## 4. Configure Claude Code settings
+
+### Open the settings file
+
+Run this command to create the config directory and open the settings file:
 
 ```bash
 mkdir -p "${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; vi "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json"
 ```
 
-2. Enter insert mode by pressing "i" on your keyboard.
-3. If you have an existing settings.json file, edit the section that looks like the section below. If you do not, paste the following snippet (using ctrl + v):
+### Edit the settings
+
+1. Press `i` to enter insert mode in vim
+
+2. Add or update the configuration:
+   - **If the file is empty**: Paste the complete configuration below (Ctrl+V or Cmd+V)
+   - **If the file has existing content**: Locate the `"env"` section and update it to match the values below
 
 ```json
 {
@@ -65,27 +82,70 @@ mkdir -p "${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; vi "${CLAUDE_CONFIG_DIR:-$HOME/.
 }
 ```
 
-4. (Optional) Replace model IDs: if you would like to change what models are used by default, change the default sonnet/opus/haiku models in the settings.json file. If you would like a list of approved Anthropic models, visit the [NASA Chat website](https://chat.asksage.ai.nasa.gov/), click your name in the bottom right, click "models", then scroll down until you see Anthropic models. To change the model in the .json, use the model name in all lowercase, with model name at the end with no "." character, and with dashes between words. So "Claude 4.6 Sonnet" should be written "claude-sonnet-4-6".
-5. Save the file by hitting "esc", then typing ":wq" and hitting enter. This will exit the vim terminal.
+3. Save and exit:
+   - Press `Esc` to exit insert mode
+   - Type `:wq` and press Enter
+
+### (Optional) Change default models
+
+To use different Claude models:
+
+1. Find available models at [NASA Chat](https://chat.asksage.ai.nasa.gov/):
+   - Click your name (bottom-right) → **Models**
+   - Scroll to the Anthropic section
+
+2. Convert the model name to the correct format:
+   - Use all lowercase
+   - Replace spaces with hyphens
+   - Remove periods
+   - Example: `Claude 4.6 Sonnet` → `claude-sonnet-4-6`
+
+3. Update the model IDs in `settings.json` above
 
 For additional API authentication and endpoint details, see the [Ask Sage API endpoint documentation](https://docs.asksage.ai/api-documentation/api-endpoints/).
 
-## 5. Start and verify
+## 5. Start Claude Code and verify
 
-From a project directory in the same terminal:
+### Launch Claude Code
+
+Navigate to your project directory in the terminal and run:
 
 ```bash
 claude
 ```
 
-Run `/status` to confirm the Ask Sage URL and `ANTHROPIC_AUTH_TOKEN`. Ask: `Reply with only OK. Do not read files or run commands.`
+### Verify the configuration
 
-## Tokens and references
+1. Run the `/status` command to check:
+   - The Ask Sage URL is set correctly
+   - `ANTHROPIC_AUTH_TOKEN` is loaded
 
-NASA Chat starts at **500,000 tokens/month** and adds **500,000 at 90% usage**, within **15 minutes**, subject to the enterprise pool (replenished monthly). Designated organizational unit (OU) users should contact their unit point of contact. API allocation is unverified.
+2. Test with a simple prompt:
+   ```
+   Reply with only OK. Do not read files or run commands.
+   ```
 
-- [NASA Chat User Guide](https://developer.nasa.gov/pages/NasaChat/NasaChat-official-guide/) · [Service Desk](https://esd.nasa.gov/esdportal)
-- [Ask Sage API keys](https://docs.asksage.ai/api-documentation/)
+If Claude responds with "OK", your configuration is complete.
+
+## Token allocation and support
+
+### Token limits
+
+NASA Chat provides:
+- **Initial allocation**: 500,000 tokens/month
+- **Automatic refill**: 500,000 tokens added within 15 minutes at 90% usage
+- Subject to enterprise pool availability (replenished monthly)
+- API allocation details are unverified
+
+**Note**: Designated organizational unit (OU) users should contact their unit point of contact for allocation questions.
+
+### Support and documentation
+
+- [NASA Chat User Guide](https://developer.nasa.gov/pages/NasaChat/NasaChat-official-guide/)
+- [NASA Service Desk](https://esd.nasa.gov/esdportal)
+- [Ask Sage API documentation](https://docs.asksage.ai/api-documentation/)
 - [Claude Code gateway configuration](https://code.claude.com/docs/en/llm-gateway-connect)
 
-NASA access details, API host, and token policy: contributor-supplied, 2026-11-19. API host taken from the supplied OpenCode configuration; live connectivity, NASA guide, and request workflow not independently verified.
+---
+
+*NASA access details, API host, and token policy: contributor-supplied, 2026-11-19. API host taken from the supplied OpenCode configuration; live connectivity, NASA guide, and request workflow not independently verified.*
