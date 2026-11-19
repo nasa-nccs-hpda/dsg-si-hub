@@ -49,7 +49,7 @@ Repeat this in each new terminal. Never commit the key.
 mkdir -p "${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; vi "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json"
 ```
 
-2. Enter insert mode by pressing "I" on your keyboard.
+2. Enter insert mode by pressing "i" on your keyboard.
 3. If you have an existing settings.json file, edit the section that looks like the section below. If you do not, paste the following snippet (using ctrl + v):
 
 ```json
