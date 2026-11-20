@@ -3,13 +3,23 @@
 Documentation owner: Repository maintainers. Reviewed: 2026-11-19.
 Status: Documentation-checked; live Ask Sage authentication and model execution have not been tested.
 
-For terminal use on macOS/Linux (Bash or Zsh), WSL (Bash), or Windows PowerShell (5.1 or later). [Install Codex](https://docs.asksage.ai/integrations/codex/) before starting.
+For terminal use on macOS/Linux (Bash or Zsh), WSL (Bash), or Windows PowerShell (5.1 or later).
 
-## 1. Request access
+## 1. Install codex
+
+1. Run this command in a command terminal (same for Mac, Windows PowerShell, and Linux):
+
+```bash
+curl -fsSL https://chatgpt.com/codex/install.sh | sh
+```
+
+2. (Optional): See [AskSage Codex Page](https://docs.asksage.ai/integrations/codex/) for more info.
+
+## 2. Request access
 
 In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 272250 (IT Asset, HQ)**. Once approved, continue below. Skip this step if you already have access.
 
-## 2. Create the API key
+## 3. Create the API key
 
 1. Sign in to [NASA Chat](https://chat.asksage.ai.nasa.gov/dashboard)
 2. Navigate to **your name (bottom-left corner) → Settings → API Keys**
@@ -20,7 +30,7 @@ In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 27
 4. Save the key securely
 5. Note the **API base URL** shown in Settings (do not use the dashboard URL)
 
-## 3. Load the key into your terminal
+## 4. Load the key into your terminal
 
 Choose the commands for your shell and use that same terminal to launch Codex in step 5. On Windows, open PowerShell directly; WSL users should follow the macOS/Linux commands inside WSL.
 
@@ -64,7 +74,7 @@ Confirm you see `Key loaded.` before continuing. If it does not appear, repeat t
 
 **Important**: Repeat these steps in each new terminal session. The key is passed to Codex through the `ASKSAGE_API_KEY` environment variable; an export does not persist across terminal sessions or reboots. Never commit the key to version control.
 
-## 4. Configure Codex settings
+## 5. Configure Codex settings
 
 Codex reads the exported `ASKSAGE_API_KEY` through the `env_http_headers` setting below and sends its value as the `x-access-tokens` header. See the [Codex configuration reference](https://learn.chatgpt.com/docs/config-file/config-reference).
 
@@ -136,7 +146,7 @@ For additional API authentication and endpoint details, see the [Ask Sage API en
 
 Please note that only the "gov" versions of models are approved for ITAR use. To specify one of those models, they should have the keyword "gov" appended, like so: "gpt-5.6-sol-gov". See [NASA Chat](https://chat.asksage.ai.nasa.gov/) models section for a list of gov models (you can search for "gov" in the top right of the models interface).
 
-## 5. Start Codex and verify
+## 6. Start Codex and verify
 
 ### Launch Codex
 

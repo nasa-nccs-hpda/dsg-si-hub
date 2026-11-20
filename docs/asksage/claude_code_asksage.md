@@ -37,6 +37,8 @@ irm https://claude.ai/install.ps1 | iex
 
 3. Restart your terminal.
 
+4. (Optional) See [AskSage Claude Code Page](https://docs.asksage.ai/integrations/claude-code/) for more info.
+
 ## 2. Request access
 
 In [NAMS](https://nams.nasa.gov/nams/user?continue#), request **NASA Chat — 272250 (IT Asset, HQ)**. Once approved, continue below. Skip this step if you already have access.
